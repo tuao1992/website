@@ -1,0 +1,29 @@
+# Built artifacts
+*.apk.idsig
+/build
+/app/build
+/captures
+.externalNativeBuild
+.cxx
+
+# Gradle
+.gradle/
+.kotlin/
+!gradle/wrapper/gradle-wrapper.jar
+build/
+
+# Android Studio / IntelliJ
+*.iml
+.idea/
+*.hprof
+
+# Local machine config (SDK path is environment-specific)
+local.properties
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Keep the signed APKs under apk/ so they ship with the deliverable.
+!apk/
+!apk/*.apk

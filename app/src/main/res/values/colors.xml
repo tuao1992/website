@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#8D3132</color>
+    <color name="brand_maroon">#8D3132</color>
+    <color name="brand_red">#FF131D</color>
+    <color name="splash_background">#8D3132</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>
