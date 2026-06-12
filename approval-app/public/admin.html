@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Approval Desk — Approver Dashboard</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">✅ Approval Desk</a>
+      <nav>
+        <a href="/">Submit a request</a>
+        <a href="/admin" class="active">Approver dashboard</a>
+        <a href="#" id="logout-link" class="hidden">Log out</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Login -->
+    <section id="login-section" class="hidden">
+      <div class="hero">
+        <h1>Approver login</h1>
+        <p>This area is for the approver only.</p>
+      </div>
+      <form id="login-form" class="card login-card">
+        <label>
+          Password
+          <input type="password" name="password" required autofocus />
+        </label>
+        <button type="submit" class="btn btn-primary">Log in</button>
+        <span id="login-error" class="error"></span>
+      </form>
+    </section>
+
+    <!-- Dashboard -->
+    <section id="dash-section" class="hidden">
+      <div class="dash-head">
+        <h1>Approver dashboard</h1>
+        <div class="stats" id="stats"></div>
+      </div>
+
+      <div class="tabs" id="tabs">
+        <button class="tab active" data-status="pending">Pending</button>
+        <button class="tab" data-status="approved">Approved</button>
+        <button class="tab" data-status="rejected">Rejected</button>
+        <button class="tab" data-status="all">All</button>
+      </div>
+
+      <div id="request-list"></div>
+      <p id="empty-msg" class="muted hidden">Nothing here. 🎈</p>
+    </section>
+  </main>
+
+  <script src="/admin.js"></script>
+</body>
+</html>

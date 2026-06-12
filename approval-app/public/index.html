@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Approval Desk — Submit a Request</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">✅ Approval Desk</a>
+      <nav>
+        <a href="/" class="active">Submit a request</a>
+        <a href="#track" onclick="showTrack(event)">Track a request</a>
+        <a href="/admin">Approver login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Submit form -->
+    <section id="submit-section">
+      <div class="hero">
+        <h1>Need an approval?</h1>
+        <p>Submit your request below and it will be routed to the approver. You'll get a tracking ID to check the status anytime.</p>
+      </div>
+
+      <form id="request-form" class="card">
+        <div class="grid-2">
+          <label>
+            Your name <span class="req">*</span>
+            <input type="text" name="name" required maxlength="200" placeholder="e.g. Priya Sharma" />
+          </label>
+          <label>
+            Your email <span class="muted">(for reference)</span>
+            <input type="email" name="email" maxlength="200" placeholder="you@company.com" />
+          </label>
+        </div>
+
+        <div class="grid-2">
+          <label>
+            Category
+            <select name="category">
+              <option value="purchase">Purchase / Procurement</option>
+              <option value="leave">Leave / Time off</option>
+              <option value="expense">Expense / Reimbursement</option>
+              <option value="access">Access / Permissions</option>
+              <option value="document">Document sign-off</option>
+              <option value="other" selected>Other</option>
+            </select>
+          </label>
+          <label>
+            Priority
+            <select name="priority">
+              <option value="low">Low — whenever convenient</option>
+              <option value="medium" selected>Medium — this week</option>
+              <option value="high">High — within a day or two</option>
+              <option value="urgent">Urgent — needs attention today</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          What do you need approved? <span class="req">*</span>
+          <input type="text" name="title" required maxlength="300" placeholder="One-line summary, e.g. 'Purchase of 2 welding torches — ₹18,000'" />
+        </label>
+
+        <label>
+          Details
+          <textarea name="details" rows="5" maxlength="5000" placeholder="Add any context the approver needs: amounts, dates, vendor, justification…"></textarea>
+        </label>
+
+        <div class="form-footer">
+          <button type="submit" class="btn btn-primary" id="submit-btn">Submit request</button>
+          <span id="form-error" class="error"></span>
+        </div>
+      </form>
+
+      <div id="success-card" class="card success-card hidden">
+        <h2>🎉 Request submitted!</h2>
+        <p>Your tracking ID is:</p>
+        <p class="tracking-id" id="new-tracking-id"></p>
+        <p class="muted">Save this ID — use it on the <a href="#track" onclick="showTrack(event)">Track a request</a> page to check whether your request has been approved.</p>
+        <button class="btn" onclick="resetForm()">Submit another request</button>
+      </div>
+    </section>
+
+    <!-- Track section -->
+    <section id="track-section" class="hidden">
+      <div class="hero">
+        <h1>Track your request</h1>
+        <p>Enter the tracking ID you received when you submitted your request.</p>
+      </div>
+
+      <form id="track-form" class="card track-form">
+        <label>
+          Tracking ID
+          <input type="text" name="trackId" required placeholder="e.g. REQ-A1B2C3" />
+        </label>
+        <button type="submit" class="btn btn-primary">Check status</button>
+        <span id="track-error" class="error"></span>
+      </form>
+
+      <div id="track-result" class="card hidden">
+        <div class="track-head">
+          <h2 id="tr-title"></h2>
+          <span id="tr-status" class="badge"></span>
+        </div>
+        <dl class="meta">
+          <div><dt>Tracking ID</dt><dd id="tr-id"></dd></div>
+          <div><dt>Category</dt><dd id="tr-category"></dd></div>
+          <div><dt>Priority</dt><dd id="tr-priority"></dd></div>
+          <div><dt>Submitted</dt><dd id="tr-submitted"></dd></div>
+          <div id="tr-decided-row" class="hidden"><dt>Decided</dt><dd id="tr-decided"></dd></div>
+        </dl>
+        <div id="tr-comment-box" class="comment-box hidden">
+          <strong>Note from the approver:</strong>
+          <p id="tr-comment"></p>
+        </div>
+      </div>
+
+      <p class="back-link"><a href="/" onclick="showSubmit(event)">← Back to submit a request</a></p>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <p>Approval Desk — requests go straight to the approver. No more chasing over email and calls.</p>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
