@@ -30,34 +30,107 @@ if (IS_PRODUCTION && !process.env.ADMIN_PASSWORD) {
 }
 
 // ---------------------------------------------------------------------------
-// Storage: JSON file with atomic writes
+// Storage: Supabase (free hosted Postgres) when configured, else a JSON file
 // ---------------------------------------------------------------------------
 
-let db = { requests: [] };
+const SUPABASE_URL = (process.env.SUPABASE_URL || '').replace(/\/+$/, '');
+const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY || '';
 
-function loadDb() {
-  try {
-    db = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
-    if (!Array.isArray(db.requests)) db.requests = [];
-  } catch {
-    db = { requests: [] };
-  }
+function randomId() {
+  return 'REQ-' + crypto.randomBytes(3).toString('hex').toUpperCase();
 }
 
-function saveDb() {
-  fs.mkdirSync(path.dirname(DATA_FILE), { recursive: true });
-  const tmp = DATA_FILE + '.tmp';
-  fs.writeFileSync(tmp, JSON.stringify(db, null, 2));
-  fs.renameSync(tmp, DATA_FILE);
-}
+const jsonStore = {
+  db: { requests: [] },
+  async init() {
+    try {
+      this.db = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
+      if (!Array.isArray(this.db.requests)) this.db.requests = [];
+    } catch {
+      this.db = { requests: [] };
+    }
+  },
+  save() {
+    fs.mkdirSync(path.dirname(DATA_FILE), { recursive: true });
+    const tmp = DATA_FILE + '.tmp';
+    fs.writeFileSync(tmp, JSON.stringify(this.db, null, 2));
+    fs.renameSync(tmp, DATA_FILE);
+  },
+  async list() {
+    return this.db.requests;
+  },
+  async get(id) {
+    return this.db.requests.find((r) => r.id === id) || null;
+  },
+  async insert(request) {
+    while (this.db.requests.some((r) => r.id === request.id)) request.id = randomId();
+    this.db.requests.push(request);
+    this.save();
+    return request;
+  },
+  async update(id, fields) {
+    const r = await this.get(id);
+    if (!r) return null;
+    Object.assign(r, fields);
+    this.save();
+    return r;
+  },
+};
 
-function newTrackingId() {
-  let id;
-  do {
-    id = 'REQ-' + crypto.randomBytes(3).toString('hex').toUpperCase();
-  } while (db.requests.some((r) => r.id === id));
-  return id;
-}
+const supabaseStore = {
+  async init() {
+    // Fail fast at startup if the key is wrong or the table is missing.
+    await this.list();
+  },
+  async rest(method, query, body) {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/requests${query}`, {
+      method,
+      headers: {
+        apikey: SUPABASE_SERVICE_KEY,
+        Authorization: `Bearer ${SUPABASE_SERVICE_KEY}`,
+        'Content-Type': 'application/json',
+        Prefer: 'return=representation',
+      },
+      body: body === undefined ? undefined : JSON.stringify(body),
+    });
+    if (!res.ok) {
+      const text = await res.text().catch(() => '');
+      const err = new Error(`Supabase ${method} failed (${res.status}): ${text.slice(0, 300)}`);
+      err.isStorage = true;
+      err.status = res.status;
+      throw err;
+    }
+    return res.status === 204 ? [] : res.json();
+  },
+  async list() {
+    return this.rest('GET', '?select=*');
+  },
+  async get(id) {
+    const rows = await this.rest('GET', `?id=eq.${encodeURIComponent(id)}&select=*`);
+    return rows[0] || null;
+  },
+  async insert(request) {
+    for (let attempt = 0; attempt < 5; attempt++) {
+      try {
+        const rows = await this.rest('POST', '', request);
+        return rows[0];
+      } catch (err) {
+        if (err.status === 409) {
+          request.id = randomId(); // tracking ID collision — retry with a new one
+          continue;
+        }
+        throw err;
+      }
+    }
+    throw new Error('Could not generate a unique request ID.');
+  },
+  async update(id, fields) {
+    const rows = await this.rest('PATCH', `?id=eq.${encodeURIComponent(id)}`, fields);
+    return rows[0] || null;
+  },
+};
+
+const store = SUPABASE_URL && SUPABASE_SERVICE_KEY ? supabaseStore : jsonStore;
 
 // ---------------------------------------------------------------------------
 // Admin sessions (in-memory tokens, cookie-based)
@@ -207,7 +280,7 @@ async function handleApi(req, res, url) {
     }
 
     const request = {
-      id: newTrackingId(),
+      id: randomId(),
       name,
       email,
       title,
@@ -219,15 +292,14 @@ async function handleApi(req, res, url) {
       decidedAt: null,
       decisionComment: null,
     };
-    db.requests.push(request);
-    saveDb();
-    return sendJson(res, 201, { id: request.id, status: request.status });
+    const saved = await store.insert(request);
+    return sendJson(res, 201, { id: saved.id, status: saved.status });
   }
 
   // GET /api/requests/:id — track a request by its ID (public)
   const trackMatch = pathname.match(/^\/api\/requests\/([A-Za-z0-9-]+)$/);
   if (trackMatch && req.method === 'GET') {
-    const r = db.requests.find((x) => x.id === trackMatch[1].toUpperCase());
+    const r = await store.get(trackMatch[1].toUpperCase());
     if (!r) return sendJson(res, 404, { error: 'No request found with that ID.' });
     return sendJson(res, 200, publicView(r));
   }
@@ -265,7 +337,8 @@ async function handleApi(req, res, url) {
     // GET /api/admin/requests?status=pending
     if (pathname === '/api/admin/requests' && req.method === 'GET') {
       const status = url.searchParams.get('status');
-      let list = db.requests;
+      const all = await store.list();
+      let list = all;
       if (status && status !== 'all') list = list.filter((r) => r.status === status);
       // Newest first; pending sorted by priority urgency.
       const priorityRank = { urgent: 0, high: 1, medium: 2, low: 3 };
@@ -274,10 +347,10 @@ async function handleApi(req, res, url) {
           const p = priorityRank[a.priority] - priorityRank[b.priority];
           if (p !== 0) return p;
         }
-        return b.submittedAt.localeCompare(a.submittedAt);
+        return String(b.submittedAt).localeCompare(String(a.submittedAt));
       });
       const counts = { pending: 0, approved: 0, rejected: 0 };
-      for (const r of db.requests) counts[r.status] = (counts[r.status] || 0) + 1;
+      for (const r of all) counts[r.status] = (counts[r.status] || 0) + 1;
       return sendJson(res, 200, { requests: list, counts });
     }
 
@@ -285,28 +358,28 @@ async function handleApi(req, res, url) {
     const decisionMatch = pathname.match(/^\/api\/admin\/requests\/([A-Za-z0-9-]+)\/decision$/);
     if (decisionMatch && req.method === 'POST') {
       const body = await readBody(req);
-      const r = db.requests.find((x) => x.id === decisionMatch[1].toUpperCase());
-      if (!r) return sendJson(res, 404, { error: 'Request not found.' });
       if (!['approved', 'rejected'].includes(body.decision)) {
         return sendJson(res, 400, { error: 'Decision must be "approved" or "rejected".' });
       }
-      r.status = body.decision;
-      r.decidedAt = new Date().toISOString();
-      r.decisionComment = String(body.comment || '').trim().slice(0, 2000) || null;
-      saveDb();
-      return sendJson(res, 200, { ok: true, request: r });
+      const updated = await store.update(decisionMatch[1].toUpperCase(), {
+        status: body.decision,
+        decidedAt: new Date().toISOString(),
+        decisionComment: String(body.comment || '').trim().slice(0, 2000) || null,
+      });
+      if (!updated) return sendJson(res, 404, { error: 'Request not found.' });
+      return sendJson(res, 200, { ok: true, request: updated });
     }
 
     // POST /api/admin/requests/:id/reopen — undo a decision
     const reopenMatch = pathname.match(/^\/api\/admin\/requests\/([A-Za-z0-9-]+)\/reopen$/);
     if (reopenMatch && req.method === 'POST') {
-      const r = db.requests.find((x) => x.id === reopenMatch[1].toUpperCase());
-      if (!r) return sendJson(res, 404, { error: 'Request not found.' });
-      r.status = 'pending';
-      r.decidedAt = null;
-      r.decisionComment = null;
-      saveDb();
-      return sendJson(res, 200, { ok: true, request: r });
+      const updated = await store.update(reopenMatch[1].toUpperCase(), {
+        status: 'pending',
+        decidedAt: null,
+        decisionComment: null,
+      });
+      if (!updated) return sendJson(res, 404, { error: 'Request not found.' });
+      return sendJson(res, 200, { ok: true, request: updated });
     }
   }
 
@@ -348,8 +421,6 @@ function serveStatic(req, res, pathname) {
 // Server
 // ---------------------------------------------------------------------------
 
-loadDb();
-
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
   try {
@@ -359,14 +430,28 @@ const server = http.createServer(async (req, res) => {
       serveStatic(req, res, url.pathname);
     }
   } catch (err) {
+    if (err.isStorage) {
+      console.error(err.message);
+      return sendJson(res, 502, { error: 'Storage error — please try again.' });
+    }
     sendJson(res, 400, { error: err.message || 'Bad request' });
   }
 });
 
-server.listen(PORT, () => {
-  console.log(`Approval Desk running at http://localhost:${PORT}`);
-  console.log(`Admin dashboard:        http://localhost:${PORT}/admin`);
-  if (!process.env.ADMIN_PASSWORD) {
-    console.log('WARNING: using default admin password "admin123" — set ADMIN_PASSWORD to change it.');
-  }
-});
+store
+  .init()
+  .then(() => {
+    server.listen(PORT, () => {
+      console.log(`Approval Desk running at http://localhost:${PORT}`);
+      console.log(`Admin dashboard:        http://localhost:${PORT}/admin`);
+      console.log(`Storage:                ${store === supabaseStore ? 'Supabase (' + SUPABASE_URL + ')' : 'JSON file (' + DATA_FILE + ')'}`);
+      if (!process.env.ADMIN_PASSWORD) {
+        console.log('WARNING: using default admin password "admin123" — set ADMIN_PASSWORD to change it.');
+      }
+    });
+  })
+  .catch((err) => {
+    console.error('FATAL: storage initialization failed.');
+    console.error(err.message);
+    process.exit(1);
+  });

@@ -32,11 +32,13 @@ Then open:
 
 ### Configuration (environment variables)
 
-| Variable         | Default               | Purpose                          |
-|------------------|-----------------------|----------------------------------|
-| `PORT`           | `3000`                | Port to listen on                |
-| `ADMIN_PASSWORD` | `admin123`            | Dashboard password — **change it** |
-| `DATA_FILE`      | `./data/requests.json`| Where requests are stored        |
+| Variable               | Default               | Purpose                          |
+|------------------------|-----------------------|----------------------------------|
+| `PORT`                 | `3000`                | Port to listen on                |
+| `ADMIN_PASSWORD`       | `admin123`            | Dashboard password — **change it** |
+| `DATA_FILE`            | `./data/requests.json`| Where requests are stored (JSON mode) |
+| `SUPABASE_URL`         | —                     | Set together with the key to store data in Supabase instead of the JSON file |
+| `SUPABASE_SERVICE_KEY` | —                     | Supabase `service_role` key      |
 
 Requires Node.js 18+.
 
@@ -46,29 +48,49 @@ The app is already multi-user — any number of people can submit and you
 approve from one dashboard. It just needs to be hosted somewhere with a
 public URL. Three good options, easiest first:
 
-### Option A — Render (recommended, ~2 minutes)
+### Option A — completely free: Render + Supabase (~10 minutes)
 
-A `render.yaml` blueprint is included at the repo root.
+Render's free tier hosts the site; Supabase's free tier stores the data
+(Render's free disk is wiped on restarts, so data must live elsewhere).
+No credit card needed for either.
+
+**1. Set up the free database (Supabase):**
+
+1. Create a free account at [supabase.com](https://supabase.com) and create
+   a project (any name/region).
+2. Open **SQL Editor**, paste the contents of `supabase-setup.sql`, click
+   **Run**.
+3. Go to **Project Settings → API** and copy two things:
+   the **Project URL** (like `https://abcdefgh.supabase.co`) and the
+   **`service_role` key** (under "Project API keys" — keep it secret).
+
+**2. Deploy the site (Render):**
 
 1. Create a free account at [render.com](https://render.com) and connect
    your GitHub.
-2. Click **New → Blueprint**, pick this repository.
-3. Render reads `render.yaml`, prompts you for `ADMIN_PASSWORD` — choose a
-   strong one (this is the only thing protecting your dashboard).
-4. Deploy. You'll get a URL like `https://approval-desk.onrender.com` to
+2. Click **New → Blueprint**, pick this repository. Render reads
+   `render.yaml` and prompts for three values:
+   - `ADMIN_PASSWORD` — your dashboard password, choose a strong one
+   - `SUPABASE_URL` — the Project URL from step 1
+   - `SUPABASE_SERVICE_KEY` — the `service_role` key from step 1
+3. Deploy. You'll get a URL like `https://approval-desk.onrender.com` to
    share with everyone; your dashboard is at `/admin` on that URL.
 
-The blueprint uses the **starter** plan (about $7/mo) because it includes a
-persistent disk so requests are never lost. To try it for free first, change
-`plan: starter` to `plan: free` and delete the `disk:` block — but note that
-on the free plan **data resets whenever the service restarts**, so don't use
-it for real approvals.
+**Free-tier quirk:** Render's free services go to sleep after ~15 minutes
+without traffic, so the first visit after a quiet spell takes ~30–60 seconds
+to load. The data is always safe in Supabase. If the wake-up delay bothers
+you, a free [cron-job.org](https://cron-job.org) job pinging your URL every
+10 minutes keeps it awake.
+
+Without `SUPABASE_URL`/`SUPABASE_SERVICE_KEY` set, the server falls back to
+the local JSON file — that's what you want locally or on a paid host with a
+persistent disk, but not on a free host.
 
 ### Option B — Railway / Fly.io / any Docker host
 
 A `Dockerfile` is included. Deploy the `approval-app/` folder as a container,
-attach a volume at `/data`, and set the `ADMIN_PASSWORD` and
-`NODE_ENV=production` environment variables.
+attach a volume at `/data` (or set the Supabase env vars instead), and set
+`ADMIN_PASSWORD` and `NODE_ENV=production`.
 
 ### Option C — your own server (VPS)
 
