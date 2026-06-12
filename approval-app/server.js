@@ -19,9 +19,15 @@ const path = require('path');
 const crypto = require('crypto');
 
 const PORT = parseInt(process.env.PORT || '3000', 10);
+const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123';
 const DATA_FILE = process.env.DATA_FILE || path.join(__dirname, 'data', 'requests.json');
 const PUBLIC_DIR = path.join(__dirname, 'public');
+
+if (IS_PRODUCTION && !process.env.ADMIN_PASSWORD) {
+  console.error('FATAL: ADMIN_PASSWORD must be set when NODE_ENV=production.');
+  process.exit(1);
+}
 
 // ---------------------------------------------------------------------------
 // Storage: JSON file with atomic writes
@@ -118,6 +124,41 @@ function readBody(req, limit = 64 * 1024) {
   });
 }
 
+function clientIp(req) {
+  // Behind a hosting platform's proxy the real IP is in X-Forwarded-For.
+  const fwd = req.headers['x-forwarded-for'];
+  if (fwd) return String(fwd).split(',')[0].trim();
+  return req.socket.remoteAddress || 'unknown';
+}
+
+function isSecureRequest(req) {
+  return req.headers['x-forwarded-proto'] === 'https';
+}
+
+// Per-IP rate limiting so a public deployment can't be spammed.
+const rateBuckets = new Map(); // ip -> array of timestamps (ms)
+
+function rateLimited(ip, max, windowMs) {
+  const now = Date.now();
+  const hits = (rateBuckets.get(ip) || []).filter((t) => now - t < windowMs);
+  if (hits.length >= max) {
+    rateBuckets.set(ip, hits);
+    return true;
+  }
+  hits.push(now);
+  rateBuckets.set(ip, hits);
+  return false;
+}
+
+setInterval(() => {
+  const cutoff = Date.now() - 60 * 60 * 1000;
+  for (const [ip, hits] of rateBuckets) {
+    const fresh = hits.filter((t) => t > cutoff);
+    if (fresh.length === 0) rateBuckets.delete(ip);
+    else rateBuckets.set(ip, fresh);
+  }
+}, 10 * 60 * 1000).unref();
+
 const VALID_PRIORITIES = ['low', 'medium', 'high', 'urgent'];
 const VALID_CATEGORIES = ['purchase', 'leave', 'expense', 'access', 'document', 'other'];
 
@@ -144,6 +185,9 @@ async function handleApi(req, res, url) {
 
   // POST /api/requests — submit a new request (public)
   if (pathname === '/api/requests' && req.method === 'POST') {
+    if (rateLimited('submit:' + clientIp(req), 20, 60 * 60 * 1000)) {
+      return sendJson(res, 429, { error: 'Too many requests from this address. Please try again later.' });
+    }
     const body = await readBody(req);
     const name = String(body.name || '').trim();
     const email = String(body.email || '').trim();
@@ -190,14 +234,18 @@ async function handleApi(req, res, url) {
 
   // POST /api/admin/login
   if (pathname === '/api/admin/login' && req.method === 'POST') {
+    if (rateLimited('login:' + clientIp(req), 10, 15 * 60 * 1000)) {
+      return sendJson(res, 429, { error: 'Too many login attempts. Please wait a few minutes.' });
+    }
     const body = await readBody(req);
     if (!checkPassword(body.password || '')) {
       return sendJson(res, 401, { error: 'Incorrect password.' });
     }
     const token = crypto.randomBytes(32).toString('hex');
     sessions.add(token);
+    const secure = isSecureRequest(req) ? '; Secure' : '';
     return sendJson(res, 200, { ok: true }, {
-      'Set-Cookie': `${SESSION_COOKIE}=${token}; HttpOnly; Path=/; SameSite=Strict; Max-Age=86400`,
+      'Set-Cookie': `${SESSION_COOKIE}=${token}; HttpOnly; Path=/; SameSite=Strict; Max-Age=86400${secure}`,
     });
   }
 

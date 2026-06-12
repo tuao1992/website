@@ -1,0 +1,13 @@
+{
+  "name": "approval-desk",
+  "version": "1.0.0",
+  "description": "A small website where people submit requests and an approver reviews them.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}

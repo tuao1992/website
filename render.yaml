@@ -1,0 +1,21 @@
+# Render blueprint for Approval Desk.
+# Deploy: https://dashboard.render.com → New → Blueprint → pick this repo.
+services:
+  - type: web
+    name: approval-desk
+    runtime: node
+    rootDir: approval-app
+    plan: starter # has a persistent disk; switch to "free" to try it out (data resets on restart)
+    buildCommand: ""
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ADMIN_PASSWORD
+        sync: false # Render will prompt you to set your dashboard password at deploy time
+      - key: DATA_FILE
+        value: /var/data/requests.json
+    disk:
+      name: approval-data
+      mountPath: /var/data
+      sizeGB: 1
