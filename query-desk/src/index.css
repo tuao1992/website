@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-navy: #1f3864;
+  --color-brand-navy-light: #2c4a82;
+  --color-status-open: #d97706;
+  --color-status-open-bg: #fef3c7;
+  --color-status-answered: #15803d;
+  --color-status-answered-bg: #dcfce7;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+}
