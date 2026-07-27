@@ -2,11 +2,14 @@ import { initializeApp } from 'firebase/app'
 import {
   getAuth,
   browserLocalPersistence,
+  connectAuthEmulator,
 } from 'firebase/auth'
 import {
   initializeFirestore,
   persistentLocalCache,
   persistentMultipleTabManager,
+  memoryLocalCache,
+  connectFirestoreEmulator,
   collection,
   doc,
   addDoc,
@@ -24,22 +27,24 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 }
 
+const useEmulators = import.meta.env.VITE_USE_EMULATORS === 'true'
+
 const app = initializeApp(firebaseConfig)
 
 export const auth = getAuth(app)
-// browserLocalPersistence is already the default in browser environments,
-// set explicitly so "keep me signed in between visits" is documented intent
-// rather than an implicit default a future maintainer might second-guess.
 auth.setPersistence(browserLocalPersistence)
 
-// persistentLocalCache enables offline reads/writes backed by IndexedDB and
-// survives across tabs (persistentMultipleTabManager). experimentalAutoDetectLongPolling
-// improves reliability of Firestore's realtime channel inside PWA/service-worker
-// contexts and on networks with proxies that mishandle streaming connections.
 export const db = initializeFirestore(app, {
-  localCache: persistentLocalCache({ tabManager: persistentMultipleTabManager() }),
-  experimentalAutoDetectLongPolling: true,
+  localCache: useEmulators
+    ? memoryLocalCache()
+    : persistentLocalCache({ tabManager: persistentMultipleTabManager() }),
+  ...(useEmulators ? {} : { experimentalAutoDetectLongPolling: true }),
 })
+
+if (useEmulators) {
+  connectAuthEmulator(auth, 'http://127.0.0.1:9099', { disableWarnings: true })
+  connectFirestoreEmulator(db, '127.0.0.1', 8080)
+}
 
 export const questionsCollection = collection(db, COLLECTIONS.questions)
 export const usersCollection = collection(db, COLLECTIONS.users)

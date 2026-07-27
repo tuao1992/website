@@ -38,10 +38,13 @@ async function main() {
   const auth = app.auth()
   const db = app.firestore()
 
+  const isEmulator = Boolean(process.env.FIREBASE_AUTH_EMULATOR_HOST)
   console.log(`This will create/update ${ROSTER.length} users in Firebase project: ${app.options.projectId}`)
-  const rl = createInterface({ input: process.stdin, output: process.stdout })
-  await rl.question('Press Enter to continue, or Ctrl+C to abort... ')
-  rl.close()
+  if (!isEmulator) {
+    const rl = createInterface({ input: process.stdin, output: process.stdout })
+    await rl.question('Press Enter to continue, or Ctrl+C to abort... ')
+    rl.close()
+  }
 
   const results = []
 

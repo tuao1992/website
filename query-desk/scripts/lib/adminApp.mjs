@@ -12,6 +12,11 @@ export function initAdminApp() {
     return admin.app()
   }
 
+  // When targeting local emulators no real credential is needed.
+  if (process.env.FIREBASE_AUTH_EMULATOR_HOST) {
+    return admin.initializeApp({ projectId: 'demo-project' })
+  }
+
   const keyPath = process.env.GOOGLE_APPLICATION_CREDENTIALS || DEFAULT_KEY_PATH
 
   if (!existsSync(keyPath)) {

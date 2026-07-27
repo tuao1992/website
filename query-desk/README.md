@@ -5,6 +5,33 @@ for the owner (Akshay) to answer them - replacing a shared spreadsheet with
 per-user login and live, real-time sync across devices. Installable to a
 phone home screen as a PWA, and works offline.
 
+## Quick start (no Firebase account needed)
+
+Run the full app locally in minutes using the Firebase Local Emulator Suite —
+no Google account, no Firebase project, no `.env.local` file required.
+
+```bash
+npm install
+
+# Terminal 1 — keep this running
+npm run emulators
+# Starts Auth on :9099, Firestore on :8080, Emulator UI on :4000
+# Wait until you see "All emulators ready"
+
+# Terminal 2
+npm run seed:local    # creates the 9 accounts; prints their temp passwords
+npm run dev           # open http://localhost:5173
+```
+
+Log in as **Akshay** (admin) or any other user using the temp password printed
+by the seed script. The Emulator UI at <http://localhost:4000> shows live Auth
+users and Firestore documents.
+
+> **Note:** Emulator data is in-memory and resets each time you restart
+> `npm run emulators`. Re-run `npm run seed:local` after each restart.
+> This setup is for local development only — see sections below for deploying
+> to a real Firebase project.
+
 ## Tech stack
 
 - React + Vite + TypeScript

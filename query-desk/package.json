@@ -8,6 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
+    "emulators": "npx --yes firebase-tools emulators:start --only auth,firestore",
+    "seed:local": "FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9099 FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 node scripts/seedUsers.mjs",
     "seed": "node scripts/seedUsers.mjs",
     "reset-password": "node scripts/resetPassword.mjs"
   },
