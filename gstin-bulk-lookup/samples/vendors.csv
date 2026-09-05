@@ -1,0 +1,16 @@
+Vendor Name,GSTIN,PO Number,Contact
+Indus Enterprises,27AAPFU0939F1ZV,PO-4471,accounts@example.com
+Ganga Solvents,09AAACH7409R1ZZ,PO-4472,finance@example.com
+Orbit Textiles,07AABCS1429B1ZW,PO-4473,ap@example.com
+Sagar Engineering,24AAACC9402D1Z8,PO-4474,billing@example.com
+Indus Foods,29AABCT3518Q1ZS,PO-4475,vendor@example.com
+Himalaya Agro,33AAACT2727Q1Z3,PO-4476,ops@example.com
+Lotus Engineering,19AADCS0472N1ZZ,PO-4477,accounts@example.com
+Chetak Industries,06AAACI1195H1ZQ,PO-4478,finance@example.com
+Vindhya Solvents,36AAECS3266L1Z0,PO-4479,ap@example.com
+Deepak Polymers,23AAFCD5862P1Z7,PO-4480,billing@example.com
+Kaveri Chemicals,32AABCK1936E1Z1,PO-4481,vendor@example.com
+Ganga Packaging,08AACCG0527D1Z4,PO-4482,ops@example.com
+Typo Traders,27AAPFU0939F1ZA,PO-4483,typo@example.com
+Truncated Supplies,29ABCDE1234,PO-4484,short@example.com
+Missing GSTIN Ltd,N/A,PO-4485,none@example.com
