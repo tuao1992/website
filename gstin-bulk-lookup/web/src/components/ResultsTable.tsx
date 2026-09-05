@@ -112,6 +112,7 @@ export function ResultsTable({ results, query, selected, onSelect }: Props): JSX
               selected?.input === result.input && selected?.gstin === result.gstin ? 'selected' : '',
               result.status === 'invalid' || result.status === 'error' ? 'row-bad' : '',
               result.status === 'not_found' ? 'row-warn' : '',
+              result.status === 'derived' ? 'row-info' : '',
             ]
               .filter(Boolean)
               .join(' ');
@@ -152,7 +153,7 @@ export function ResultsTable({ results, query, selected, onSelect }: Props): JSX
                 {result.status === 'success' ? (
                   <td className="address">{dash(record?.principalAddress?.formatted)}</td>
                 ) : (
-                  <td className="msg">{dash(result.message)}</td>
+                  <td className={result.status === 'derived' ? 'address' : 'msg'}>{dash(result.message)}</td>
                 )}
               </tr>
             );

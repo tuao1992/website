@@ -187,6 +187,12 @@ export class MockProvider implements GstinProvider {
         retryable: false,
       };
     }
-    return { kind: 'found', record: mapGstnPayload(gstin, buildPayload(gstin)) };
+    return {
+      kind: 'found',
+      record: mapGstnPayload(gstin, buildPayload(gstin), {
+        verifiedBy: 'demo',
+        note: 'Synthetic demo data generated locally. Not a real GST record.',
+      }),
+    };
   }
 }

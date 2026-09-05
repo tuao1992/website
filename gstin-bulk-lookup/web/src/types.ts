@@ -36,6 +36,8 @@ export interface GstinRecord {
   natureOfBusiness: string[];
   eInvoiceEnabled: boolean | null;
   isFieldVisitConducted: string | null;
+  verifiedBy: 'registry' | 'dataset' | 'derived' | 'demo';
+  provenance: string | null;
   principalAddress: GstinAddress | null;
   additionalAddresses: GstinPlaceOfBusiness[];
   derived: {
@@ -49,7 +51,7 @@ export interface GstinRecord {
   raw?: unknown;
 }
 
-export type LookupStatus = 'success' | 'invalid' | 'not_found' | 'error';
+export type LookupStatus = 'success' | 'derived' | 'invalid' | 'not_found' | 'error';
 
 export interface LookupResult {
   input: string;
@@ -67,6 +69,7 @@ export interface LookupResult {
 export interface LookupSummary {
   total: number;
   success: number;
+  derived: number;
   invalid: number;
   notFound: number;
   errors: number;
@@ -75,9 +78,25 @@ export interface LookupSummary {
   provider: string;
 }
 
+export interface DatasetInfo {
+  entries: number;
+  files: Array<{ path: string; rows: number }>;
+  skipped: number;
+}
+
 export interface AppConfig {
-  provider: { id: string; name: string; docsUrl?: string; ready: boolean; synthetic: boolean; error?: string };
+  provider: {
+    id: string;
+    name: string;
+    docsUrl?: string;
+    ready: boolean;
+    synthetic: boolean;
+    validationOnly: boolean;
+    dataset?: DatasetInfo | null;
+    error?: string;
+  };
   availableProviders: string[];
+  keylessProviders: string[];
   limits: { maxBatchSize: number; concurrency: number; maxUploadBytes: number };
   cache: { enabled: boolean; ttlMinutes: number };
   stateCodes: Record<string, string>;

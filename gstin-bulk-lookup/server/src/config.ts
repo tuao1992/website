@@ -20,8 +20,17 @@ export const config = {
   env: process.env.NODE_ENV ?? 'development',
   port: int('PORT', 4000),
 
-  /** Which upstream answers lookups. See src/providers/index.ts for the catalogue. */
+  /**
+   * Which source answers lookups. May be a comma-separated chain tried in order,
+   * e.g. "dataset,local". See src/providers/index.ts for the catalogue.
+   */
   provider: (process.env.GSTIN_PROVIDER ?? 'mock').trim().toLowerCase(),
+
+  /** Reference files for the keyless `dataset` provider, comma-separated. */
+  datasetPaths: (process.env.GSTIN_DATASET_PATH ?? '')
+    .split(',')
+    .map((entry) => entry.trim())
+    .filter(Boolean),
 
   /** Hard ceiling on one batch, so a pasted 100k-line file cannot exhaust the API quota. */
   maxBatchSize: int('MAX_BATCH_SIZE', 500),

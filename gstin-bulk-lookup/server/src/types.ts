@@ -45,6 +45,15 @@ export interface GstinRecord {
   natureOfBusiness: string[];
   eInvoiceEnabled: boolean | null;
   isFieldVisitConducted: string | null;
+  /**
+   * Where the business details came from, so a row is never mistaken for a live
+   * registry answer: 'registry' = a GST data provider, 'dataset' = a reference
+   * file you supplied, 'derived' = decoded from the GSTIN alone, 'demo' =
+   * invented by the offline demo provider.
+   */
+  verifiedBy: 'registry' | 'dataset' | 'derived' | 'demo';
+  /** How the record was obtained, shown in the detail view. Null for registry hits. */
+  provenance: string | null;
   principalAddress: GstinAddress | null;
   additionalAddresses: GstinPlaceOfBusiness[];
   /** Facts derived from the GSTIN itself; always present, never from the network. */
@@ -61,8 +70,14 @@ export interface GstinRecord {
 }
 
 export type LookupStatus =
-  /** Provider returned a record. */
+  /** Provider returned a record from a registry or reference dataset. */
   | 'success'
+  /**
+   * No registry answered, but the GSTIN is valid and the facts encoded in it
+   * (state, PAN, holder type, registration class) are reported. Never carries a
+   * registered name or address — those cannot be derived.
+   */
+  | 'derived'
   /** Failed offline validation (layout / state code / PAN / check digit). */
   | 'invalid'
   /** Structurally valid but no taxpayer exists with that GSTIN. */
@@ -96,6 +111,8 @@ export interface LookupResult {
 export interface LookupSummary {
   total: number;
   success: number;
+  /** Rows answered only from the GSTIN itself — no registry, no dataset. */
+  derived: number;
   invalid: number;
   notFound: number;
   errors: number;
@@ -107,6 +124,8 @@ export interface LookupSummary {
 /** Result of asking a provider about one GSTIN. */
 export type ProviderResponse =
   | { kind: 'found'; record: GstinRecord }
+  /** Partial answer: structurally sound, but nothing authoritative about the business. */
+  | { kind: 'derived'; record: GstinRecord; message: string }
   | { kind: 'not_found'; message: string; code?: string }
   | { kind: 'error'; message: string; code?: string; retryable?: boolean };
 

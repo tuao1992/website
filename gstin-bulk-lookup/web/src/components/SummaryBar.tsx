@@ -17,6 +17,10 @@ export function SummaryBar({ results, filter, onFilter, elapsedMs }: Props): JSX
   const cards: Array<{ key: StatusFilter; label: string; value: number; tone?: string }> = [
     { key: 'all', label: 'Total', value: results.length },
     { key: 'success', label: 'Found', value: count('success'), tone: 'ok' },
+    // Only meaningful when a keyless source answered; hidden otherwise.
+    ...(count('derived') > 0
+      ? [{ key: 'derived' as StatusFilter, label: 'Validated only', value: count('derived'), tone: 'info' }]
+      : []),
     { key: 'not_found', label: 'Not found', value: count('not_found'), tone: 'warn' },
     { key: 'invalid', label: 'Invalid GSTIN', value: count('invalid'), tone: 'bad' },
     { key: 'error', label: 'Lookup failed', value: count('error'), tone: 'bad' },

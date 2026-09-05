@@ -3,6 +3,7 @@ import { ApiError, downloadExport, fetchConfig, lookupStream, uploadFile } from 
 import { DetailDrawer } from './components/DetailDrawer';
 import { ExportMenu } from './components/ExportMenu';
 import { InputPanel } from './components/InputPanel';
+import { ProviderBanner } from './components/ProviderBanner';
 import { ResultsTable, useFilteredResults } from './components/ResultsTable';
 import { SummaryBar, type StatusFilter } from './components/SummaryBar';
 import type { AppConfig, ExportFormat, LookupResult, LookupSummary } from './types';
@@ -186,26 +187,7 @@ export default function App(): JSX.Element {
             </div>
           )}
 
-          {config && !config.provider.ready && (
-            <div className="banner bad">
-              <span className="banner-icon">!</span>
-              <span>
-                <strong>Provider not configured</strong>
-                {config.provider.error}
-              </span>
-            </div>
-          )}
-
-          {config?.provider.synthetic && (
-            <div className="banner warn">
-              <span className="banner-icon">!</span>
-              <span>
-                <strong>Demo mode — results are synthetic, not real GST records</strong>
-                Set <code>GSTIN_PROVIDER</code> and the matching API credentials in <code>.env</code> to query a real
-                GST data provider. See the README for the supported providers.
-              </span>
-            </div>
-          )}
+          {config && <ProviderBanner config={config} />}
 
           {lookupError && (
             <div className="banner warn">

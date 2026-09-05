@@ -2,6 +2,7 @@ import type { LookupResult, LookupStatus } from '../types';
 
 export const STATUS_LABEL: Record<LookupStatus, string> = {
   success: 'Found',
+  derived: 'Validated only',
   invalid: 'Invalid GSTIN',
   not_found: 'Not found',
   error: 'Lookup failed',
@@ -9,6 +10,7 @@ export const STATUS_LABEL: Record<LookupStatus, string> = {
 
 export const STATUS_TONE: Record<LookupStatus, string> = {
   success: 'ok',
+  derived: 'info',
   invalid: 'bad',
   not_found: 'warn',
   error: 'bad',
@@ -45,6 +47,7 @@ export function searchHaystack(result: LookupResult): string {
     record?.principalAddress?.pincode,
     record?.derived?.pan,
     record?.derived?.stateName,
+    record?.provenance,
     ...(record?.natureOfBusiness ?? []),
   ]
     .filter(Boolean)

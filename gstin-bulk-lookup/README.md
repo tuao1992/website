@@ -31,8 +31,12 @@ which are real, which are cancelled, and where each business is registered.
   provider payload.
 - **Exports that match what you see** — filter and search first; the export
   contains exactly the visible rows, failures included.
-- **Pluggable data source** — ships with four real provider adapters and a
-  generic one, plus an offline demo mode so the app runs with zero credentials.
+- **Works without an API key** — resolve GSTINs from reference files you already
+  have (vendor master, purchase register, GSTR-2A/2B export), or run validation
+  and GSTIN decoding with no data source at all. See
+  [No API key? Start here](#no-api-key-start-here).
+- **Pluggable data source** — three keyless modes plus four commercial provider
+  adapters, chainable so paid calls only happen for GSTINs your own data misses.
 
 ---
 
@@ -71,6 +75,92 @@ Requires **Node.js 18.17+** (Node 20 or 22 recommended).
 
 ---
 
+## No API key? Start here
+
+There is no reliable keyless *live* GSTIN API. GSTN's own Search Taxpayer page is
+captcha-gated and its terms forbid scraping, so anything that promises live
+registry data without credentials is either a paid service in disguise or a
+scraper you should not run. This app therefore gives you three honest routes that
+need no key, and they compose.
+
+### 1. `dataset` — resolve from data you already have  ← the practical answer
+
+You almost certainly already hold GSTIN → name → address mappings:
+
+| Where to look | What it gives you |
+|---|---|
+| Vendor / customer master exported from Tally, SAP, Zoho, Busy | GSTIN, legal name, full address — everything |
+| Purchase or sales register | GSTIN, party name, often the address |
+| **GSTR-2A / GSTR-2B JSON**, downloaded free from the GST portal for any return period | Every supplier GSTIN you transacted with, plus trade name |
+| E-invoice / e-way bill JSON | Full seller and buyer address blocks |
+| A previous JSON export from this app | Everything a paid batch already told you — reuse it forever |
+
+Point the app at them:
+
+```bash
+GSTIN_PROVIDER=dataset \
+GSTIN_DATASET_PATH=./vendor-master.csv,./gstr2b-2024-11.json \
+npm start
+```
+
+Columns are auto-detected — `GSTIN` / `GST No` / `ctin`, `Legal Name` / `Party
+Name` / `lgnm`, `Address` or separate `City` / `State` / `Pincode`, and so on —
+so an ERP export usually works untouched. CSV, TSV, XLSX and JSON are accepted,
+several files can be listed, and later files override earlier ones (handy for a
+small hand-maintained corrections list). Rows whose GSTIN fails validation are
+counted and refused, so a typo in your reference file can never answer a lookup.
+
+Try it now with the bundled example:
+
+```bash
+GSTIN_PROVIDER=dataset,local GSTIN_DATASET_PATH=samples/reference-example.csv npm start
+```
+
+**Bonus — same-PAN inference.** If a GSTIN is not in your file but *another*
+registration under the same PAN is, the legal name carries over (same PAN means
+the same legal entity) and the row is marked *Validated only*, with the address
+left empty and the source registration named. It never claims an address it
+cannot know.
+
+### 2. `local` — validate and decode, with no data source at all
+
+```bash
+GSTIN_PROVIDER=local npm start
+```
+
+Every GSTIN is checked for structure, state code, embedded PAN and check digit,
+and the app reports what the GSTIN itself encodes: **state of registration, PAN,
+type of PAN holder** (company / LLP / partnership / individual / trust / …),
+registration serial and registration class (regular, TDS, TCS, UIN).
+
+A GSTIN does **not** encode the business name or address, so this mode never
+shows one — those rows are labelled *Validated only* rather than *Found*. That is
+still enough to clean a 5,000-row list, catch every typo before you pay for it,
+route vendors by state, and split companies from proprietors.
+
+### 3. Chain them
+
+```bash
+GSTIN_PROVIDER=dataset,local       # free: your files first, decode the rest
+GSTIN_PROVIDER=dataset,appyflow    # later: pay only for GSTINs you don't have
+```
+
+Sources are tried in order and the first full answer wins; a partial answer is
+held back in case a later source does better. Adding a key later is a one-line
+change, and your reference data keeps absorbing the calls you would have paid for.
+
+### If you do want live data later
+
+These sell per-lookup GST APIs and issue a key on self-service signup, most with
+trial credits — check current terms and pricing with them directly:
+[gstincheck.co.in](https://gstincheck.co.in),
+[Appyflow](https://appyflow.in/gst-api),
+[Masters India](https://mastersindia.co) (a GSTN-authorised GSP).
+Set `GSTIN_PROVIDER` and the matching variables from `.env.example`; nothing else
+in the app changes.
+
+---
+
 ## Choosing a data source
 
 GSTIN details come from the GST Network. GSTN does not expose an unauthenticated
@@ -78,10 +168,13 @@ public API — the official *Search Taxpayer* page is captcha-gated and its term
 do not permit scraping — so production use goes through a **GST Suvidha Provider
 (GSP)** or a licensed aggregator, with your own API key.
 
-Set `GSTIN_PROVIDER` in `.env` to one of:
+Set `GSTIN_PROVIDER` in `.env` to one of these, or to a comma-separated chain
+such as `dataset,local`:
 
 | `GSTIN_PROVIDER` | Service | Required environment variables |
 |---|---|---|
+| `dataset` | **Your own reference files** — no key | `GSTIN_DATASET_PATH` |
+| `local` | **Validation + GSTIN decoding only** — no key | none |
 | `mock` *(default)* | Offline demo — **synthetic data** | none |
 | `gstincheck` | [GST India API](https://gstincheck.co.in) | `GSTINCHECK_API_KEY` |
 | `appyflow` | [Appyflow GST API](https://appyflow.in/gst-api) | `APPYFLOW_API_KEY` |
@@ -135,11 +228,18 @@ path to the GSTN payload inside the response (blank means the response root).
 
 ```
 input  →  normalise (strip spaces/dashes, upper-case)
-       →  validate offline   ─ fail ⇒ status "invalid", no API call
-       →  in-memory cache    ─ hit  ⇒ status from cache, no API call
-       →  provider           ─ bounded concurrency, retry on 429/5xx/timeout
-       →  normalise payload  ─ canonical GstinRecord
+       →  validate offline   ─ fail ⇒ status "invalid", no lookup at all
+       →  in-memory cache    ─ hit  ⇒ answered from cache
+       →  provider chain     ─ each source in turn, first full answer wins
+       │     dataset         ─ your reference files, free and instant
+       │     local           ─ decode the GSTIN itself, free and instant
+       │     gstincheck/…    ─ bounded concurrency, retry on 429/5xx/timeout
+       →  normalise payload  ─ canonical GstinRecord, tagged with its origin
 ```
+
+Every record carries `verifiedBy` (`registry`, `dataset`, `derived` or `demo`) and
+a `provenance` note, both shown in the detail view and included in exports, so a
+row is never mistaken for something it is not.
 
 Duplicate GSTINs in one batch are looked up **once**; the answer is copied to
 every occurrence and marked `cached`, so a 500-row sheet with 40 unique vendors
@@ -220,7 +320,8 @@ Every variable, with its default, is documented in
 
 | Variable | Default | Notes |
 |---|---|---|
-| `GSTIN_PROVIDER` | `mock` | Data source; see the table above |
+| `GSTIN_PROVIDER` | `mock` | Data source, or a comma-separated chain |
+| `GSTIN_DATASET_PATH` | — | Reference files for the keyless `dataset` provider |
 | `MAX_BATCH_SIZE` | `500` | Largest batch accepted in one request |
 | `LOOKUP_CONCURRENCY` | `5` | Parallel upstream calls |
 | `REQUEST_TIMEOUT_MS` | `15000` | Per-GSTIN upstream timeout |
@@ -239,10 +340,12 @@ gstin-bulk-lookup/
 ├── server/                    Node.js + Express + TypeScript API
 │   └── src/
 │       ├── lib/               GSTIN validation, GSTN normaliser, cache, HTTP, pool
-│       ├── providers/         mock · gstincheck · appyflow · mastersindia · custom
-│       ├── services/          batch orchestration, file parsing, exporters
+│       ├── providers/         dataset · local · mock · gstincheck · appyflow ·
+│       │                       mastersindia · custom · chain
+│       ├── services/          batch orchestration, file parsing, dataset
+│       │                       loading, exporters
 │       ├── routes/            lookup · upload · export
-│       └── __tests__/         57 tests
+│       └── __tests__/         80 tests
 ├── web/                       React 18 + TypeScript + Vite SPA
 │   └── src/
 │       ├── components/        InputPanel · SummaryBar · ResultsTable · DetailDrawer · ExportMenu
@@ -263,16 +366,18 @@ React, so the production bundle is ~55 kB gzipped.
 ## Tests
 
 ```bash
-npm test                       # 57 tests
+npm test                       # 80 tests
 npm run typecheck              # strict TypeScript across both workspaces
 ```
 
 Coverage includes the check-digit algorithm (verified against GSTINs published in
 GST documentation), the structural validator, the GSTN payload normaliser, CSV
 and XLSX parsing, the full HTTP surface (lookup, streaming, upload and all four
-export formats), and the provider transport path — retry on 5xx, timeout, and
-the mapping of 401/429 to messages that name the fix — driven against a local
-stub that speaks the GSTN response shape.
+export formats), the provider transport path — retry on 5xx, timeout, and the
+mapping of 401/429 to messages that name the fix — driven against a local stub
+that speaks the GSTN response shape, and the keyless path end to end: reference
+file loading in every accepted format, same-PAN inference, and the
+`dataset,local` chain over HTTP.
 
 ## Licence
 

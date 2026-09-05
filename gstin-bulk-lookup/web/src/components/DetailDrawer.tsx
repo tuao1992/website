@@ -3,6 +3,14 @@ import type { ReactNode } from 'react';
 import type { LookupResult } from '../types';
 import { STATUS_LABEL, STATUS_TONE, dash, gstStatusTone } from '../lib/format';
 
+
+const VERIFIED_LABEL: Record<NonNullable<LookupResult['record']>['verifiedBy'], string> = {
+  registry: 'GST data provider',
+  dataset: 'Your reference dataset',
+  derived: 'Decoded from the GSTIN',
+  demo: 'Synthetic demo data',
+};
+
 interface Props {
   result: LookupResult;
   onClose: () => void;
@@ -36,7 +44,7 @@ export function DetailDrawer({ result, onClose }: Props): JSX.Element {
       <aside className="drawer" role="dialog" aria-modal="true" aria-label={`Details for ${result.gstin}`}>
         <div className="drawer-head">
           <div style={{ flex: 1, minWidth: 0 }}>
-            <h2>{dash(record?.legalName ?? record?.tradeName)}</h2>
+            <h2>{record?.legalName ?? record?.tradeName ?? 'No registered name available'}</h2>
             <div className="gstin">{result.gstin || result.input}</div>
           </div>
           <span className={`badge ${STATUS_TONE[result.status]}`}>{STATUS_LABEL[result.status]}</span>
@@ -46,7 +54,17 @@ export function DetailDrawer({ result, onClose }: Props): JSX.Element {
         </div>
 
         <div className="drawer-body">
-          {result.status !== 'success' && (
+          {result.status === 'derived' && (
+            <div className="banner info">
+              <span className="banner-icon">i</span>
+              <span>
+                <strong>No registry answered for this GSTIN</strong>
+                {result.message}
+              </span>
+            </div>
+          )}
+
+          {result.status !== 'success' && result.status !== 'derived' && (
             <div className={`banner ${result.status === 'not_found' ? 'warn' : 'bad'}`}>
               <span className="banner-icon">!</span>
               <span>
@@ -156,6 +174,8 @@ export function DetailDrawer({ result, onClose }: Props): JSX.Element {
             <dl className="detail-grid">
               <Row label="Your input" value={<code>{result.input}</code>} />
               <Row label="Data source" value={result.source} />
+              {record && <Row label="Verified by" value={VERIFIED_LABEL[record.verifiedBy]} />}
+              {record?.provenance && <Row label="Provenance" value={record.provenance} />}
               <Row label="From cache" value={result.cached ? 'Yes' : 'No'} />
               <Row label="Took" value={`${result.durationMs} ms`} />
             </dl>

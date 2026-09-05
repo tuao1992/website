@@ -5,7 +5,7 @@ import express, { type Express, type NextFunction, type Request, type Response }
 import rateLimit from 'express-rate-limit';
 import { config } from './config.js';
 import { GST_STATE_CODES } from './lib/gstReference.js';
-import { PROVIDER_IDS, getProvider } from './providers/index.js';
+import { KEYLESS_PROVIDER_IDS, PROVIDER_IDS, getDatasetProvider, getProvider } from './providers/index.js';
 import { exportRouter } from './routes/exportRoutes.js';
 import { lookupRouter } from './routes/lookup.js';
 import { uploadRouter } from './routes/upload.js';
@@ -34,10 +34,11 @@ export function createApp(): Express {
     }),
   );
 
-  api.get('/health', (_req, res) => {
+  api.get('/health', async (_req, res) => {
     let provider: { id: string; name: string; ready: boolean; error?: string };
     try {
       const active = getProvider();
+      await getDatasetProvider()?.warmUp();
       provider = { id: active.id, name: active.name, ready: true };
     } catch (error) {
       provider = {
@@ -51,16 +52,37 @@ export function createApp(): Express {
   });
 
   /** Everything the front end needs to configure itself: limits, provider, state list. */
-  api.get('/config', (_req, res) => {
-    let providerInfo: { id: string; name: string; docsUrl?: string; ready: boolean; synthetic: boolean; error?: string };
+  api.get('/config', async (_req, res) => {
+    interface ProviderInfo {
+      id: string;
+      name: string;
+      docsUrl?: string;
+      ready: boolean;
+      /** True only for the demo provider, whose records are invented. */
+      synthetic: boolean;
+      /** True when no source in the chain can supply a registered name or address. */
+      validationOnly: boolean;
+      /** Present when a reference dataset is part of the chain. */
+      dataset?: { entries: number; files: Array<{ path: string; rows: number }>; skipped: number } | null;
+      error?: string;
+    }
+
+    let providerInfo: ProviderInfo;
     try {
       const active = getProvider();
+      const ids = active.id.split(',');
+      // Load the reference files now if nothing has yet, so the first page load
+      // reports real counts and a bad path surfaces here rather than mid-batch.
+      await getDatasetProvider()?.warmUp();
       providerInfo = {
         id: active.id,
         name: active.name,
         docsUrl: active.docsUrl,
         ready: true,
-        synthetic: active.id === 'mock',
+        synthetic: ids.includes('mock'),
+        // 'local' alone can prove a GSTIN is well-formed but never names a business.
+        validationOnly: ids.every((id) => id === 'local'),
+        dataset: getDatasetProvider()?.stats() ?? null,
       };
     } catch (error) {
       providerInfo = {
@@ -68,6 +90,7 @@ export function createApp(): Express {
         name: config.provider,
         ready: false,
         synthetic: false,
+        validationOnly: false,
         error: error instanceof Error ? error.message : 'provider unavailable',
       };
     }
@@ -75,6 +98,7 @@ export function createApp(): Express {
     res.json({
       provider: providerInfo,
       availableProviders: PROVIDER_IDS,
+      keylessProviders: KEYLESS_PROVIDER_IDS,
       limits: {
         maxBatchSize: config.maxBatchSize,
         concurrency: config.concurrency,

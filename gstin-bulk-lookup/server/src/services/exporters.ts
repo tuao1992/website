@@ -13,6 +13,7 @@ interface Column {
 
 const STATUS_LABEL: Record<LookupResult['status'], string> = {
   success: 'Found',
+  derived: 'Validated only',
   invalid: 'Invalid GSTIN',
   not_found: 'Not found',
   error: 'Lookup failed',
@@ -65,6 +66,8 @@ export const COLUMNS: readonly Column[] = [
   },
   { key: 'message', header: 'Message / Error', width: 46, get: (r) => text(r.message) },
   { key: 'code', header: 'Error Code', width: 22, get: (r) => text(r.code) },
+  { key: 'verifiedBy', header: 'Verified By', width: 14, get: (r) => text(r.record?.verifiedBy) },
+  { key: 'provenance', header: 'Provenance', width: 40, get: (r) => text(r.record?.provenance) },
   { key: 'source', header: 'Source', width: 16, get: (r) => r.source },
   { key: 'cached', header: 'From Cache', width: 12, get: (r) => (r.cached ? 'Yes' : 'No') },
 ];
@@ -102,6 +105,7 @@ export async function toXlsx(results: readonly LookupResult[], summary: LookupSu
 
   const statusFill: Record<LookupResult['status'], string> = {
     success: 'FFEAF7EE',
+    derived: 'FFEDF2F9',
     invalid: 'FFFDECEC',
     not_found: 'FFFFF6E5',
     error: 'FFFDECEC',
@@ -127,6 +131,7 @@ export async function toXlsx(results: readonly LookupResult[], summary: LookupSu
     ['Data source', summary.provider],
     ['Total GSTINs', summary.total],
     ['Found', summary.success],
+    ['Validated only (no registry)', summary.derived],
     ['Invalid GSTIN', summary.invalid],
     ['Not found', summary.notFound],
     ['Lookup failed', summary.errors],
@@ -160,8 +165,8 @@ export function toPdf(results: readonly LookupResult[], summary: LookupSummary):
       .fillColor('#555')
       .text(
         `Generated ${new Date().toLocaleString('en-IN')}  ·  Source: ${summary.provider}  ·  ` +
-          `${summary.total} GSTIN(s): ${summary.success} found, ${summary.invalid} invalid, ` +
-          `${summary.notFound} not found, ${summary.errors} failed`,
+          `${summary.total} GSTIN(s): ${summary.success} found, ${summary.derived} validated only, ` +
+          `${summary.invalid} invalid, ${summary.notFound} not found, ${summary.errors} failed`,
       );
     doc.fillColor('#000').moveDown(0.8);
 
@@ -208,7 +213,8 @@ export function toPdf(results: readonly LookupResult[], summary: LookupSummary):
 
       const y = doc.y;
       if (result.status !== 'success') {
-        doc.rect(left, y, usable, height).fill(result.status === 'not_found' ? '#fff6e5' : '#fdecec');
+        const fill = result.status === 'not_found' ? '#fff6e5' : result.status === 'derived' ? '#edf2f9' : '#fdecec';
+        doc.rect(left, y, usable, height).fill(fill);
         doc.fillColor('#000');
       }
       let x = left;

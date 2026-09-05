@@ -21,6 +21,7 @@ function fallbackSummary(results: LookupResult[]): LookupSummary {
   return {
     total: results.length,
     success: results.filter((r) => r.status === 'success').length,
+    derived: results.filter((r) => r.status === 'derived').length,
     invalid: results.filter((r) => r.status === 'invalid').length,
     notFound: results.filter((r) => r.status === 'not_found').length,
     errors: results.filter((r) => r.status === 'error').length,

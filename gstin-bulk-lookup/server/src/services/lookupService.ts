@@ -88,6 +88,20 @@ export async function lookupOne(input: string, signal: AbortSignal): Promise<Loo
       durationMs,
     };
   }
+  if (response.kind === 'derived') {
+    return {
+      input,
+      gstin,
+      status: 'derived',
+      record: response.record,
+      message: response.message,
+      code: 'DERIVED_ONLY',
+      validation,
+      source: provider.id,
+      cached: cached !== undefined,
+      durationMs,
+    };
+  }
   if (response.kind === 'not_found') {
     return {
       ...failedResult(input, gstin, 'not_found', response.code ?? 'NOT_FOUND', response.message, validation, provider.id, durationMs),
@@ -170,6 +184,7 @@ export async function lookupBatch(inputs: readonly string[], options: BatchOptio
   const summary: LookupSummary = {
     total: results.length,
     success: results.filter((r) => r.status === 'success').length,
+    derived: results.filter((r) => r.status === 'derived').length,
     invalid: results.filter((r) => r.status === 'invalid').length,
     notFound: results.filter((r) => r.status === 'not_found').length,
     errors: results.filter((r) => r.status === 'error').length,

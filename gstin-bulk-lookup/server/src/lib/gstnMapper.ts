@@ -63,7 +63,7 @@ function clean(value: unknown): string | null {
 }
 
 /** Join address parts in postal order, dropping blanks and consecutive duplicates. */
-function formatAddress(parts: Array<string | null | undefined>): string {
+export function joinAddressParts(parts: Array<string | null | undefined>): string {
   const kept: string[] = [];
   for (const part of parts) {
     const value = clean(part);
@@ -91,7 +91,7 @@ export function mapAddress(raw: RawAddr | undefined | null): GstinAddress | null
     longitude: clean(raw.lg),
     formatted: '',
   };
-  address.formatted = formatAddress([
+  address.formatted = joinAddressParts([
     address.floorNo ? `Floor ${address.floorNo}` : null,
     address.buildingNo,
     address.buildingName,
@@ -137,7 +137,11 @@ function mapEInvoice(value: unknown): boolean | null {
  * Build a canonical record. `gstin` is the value the caller asked about and always
  * wins over whatever the provider echoed back, so a row can never be mis-attributed.
  */
-export function mapGstnPayload(gstin: string, payload: RawGstnPayload): GstinRecord {
+export function mapGstnPayload(
+  gstin: string,
+  payload: RawGstnPayload,
+  provenance: { verifiedBy: GstinRecord['verifiedBy']; note?: string } = { verifiedBy: 'registry' },
+): GstinRecord {
   const validation = validateGstin(gstin);
   const parts = validation.parts;
   const principalAddress = mapAddress(payload.pradr?.addr);
@@ -165,6 +169,8 @@ export function mapGstnPayload(gstin: string, payload: RawGstnPayload): GstinRec
     natureOfBusiness: natureOfBusiness.length > 0 ? natureOfBusiness : principalNature,
     eInvoiceEnabled: mapEInvoice(payload.einvoiceStatus),
     isFieldVisitConducted: clean(payload.isFieldVisitConducted),
+    verifiedBy: provenance.verifiedBy,
+    provenance: provenance.note ?? null,
     principalAddress,
     additionalAddresses: mapPlaces(payload.adadr),
     derived: parts
