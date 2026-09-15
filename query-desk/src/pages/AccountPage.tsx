@@ -1,5 +1,46 @@
-import { useState, type FormEvent } from 'react'
+import { useState, useCallback, type FormEvent } from 'react'
 import { useAuth } from '../contexts/AuthContext'
+
+function NotificationSection() {
+  const supported = 'Notification' in window
+  const [permission, setPermission] = useState<NotificationPermission>(
+    supported ? Notification.permission : 'denied',
+  )
+
+  const requestPermission = useCallback(async () => {
+    const result = await Notification.requestPermission()
+    setPermission(result)
+  }, [])
+
+  if (!supported) return null
+
+  return (
+    <div className="mt-6">
+      <h2 className="mb-2 text-sm font-semibold text-gray-700">Notifications</h2>
+      <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+        {permission === 'granted' && (
+          <p className="text-sm text-status-answered">✓ Notifications enabled — you'll be notified when your questions are answered.</p>
+        )}
+        {permission === 'default' && (
+          <div className="space-y-2">
+            <p className="text-sm text-gray-600">Get notified when Akshay answers one of your questions.</p>
+            <button
+              onClick={requestPermission}
+              className="rounded-lg bg-brand-navy px-4 py-1.5 text-sm font-medium text-white hover:bg-brand-navy-light"
+            >
+              Enable notifications
+            </button>
+          </div>
+        )}
+        {permission === 'denied' && (
+          <p className="text-sm text-gray-500">
+            Notifications are blocked. To enable them, open your browser settings and allow notifications for this site.
+          </p>
+        )}
+      </div>
+    </div>
+  )
+}
 
 function friendlyError(code: string): string {
   switch (code) {
@@ -106,6 +147,8 @@ export function AccountPage() {
             {submitting ? 'Updating…' : 'Update password'}
           </button>
         </form>
+
+        <NotificationSection />
 
         {userDoc?.role === 'admin' && (
           <p className="mt-6 text-xs text-gray-400">

@@ -15,41 +15,30 @@ service cloud.firestore {
     }
 
     match /users/{userId} {
-      // Any authenticated user can read the full users collection - needed to
-      // resolve raisedByName/replyByName for display, and for isAdmin() above
-      // to check the caller's own role. There's no sensitive data here beyond
-      // displayName/email/role.
       allow read: if isSignedIn();
-      // The seed/reset scripts use the firebase-admin SDK, which bypasses
-      // these rules entirely. This only restricts client-side writes.
       allow write: if isAdmin();
     }
 
     match /questions/{questionId} {
       allow read: if isSignedIn();
 
-      // Any authenticated user may post a question, but only as themselves,
-      // and it must start out open with no reply fields set.
       allow create: if isSignedIn()
         && request.resource.data.raisedByUid == request.auth.uid
         && request.resource.data.status == 'open'
         && request.resource.data.replyText == null
         && request.resource.data.replyByName == null
-        && request.resource.data.replyDate == null;
+        && request.resource.data.replyDate == null
+        && request.resource.data.dueDate == null;
 
-      // Only admin may answer (or later edit) a reply. The original question
-      // fields are immutable; this single rule covers both the initial
-      // open -> answered transition and editing an existing reply, since both
-      // are "admin sets status to answered with a valid non-empty reply,
-      // question fields unchanged".
+      // Admin can update any mutable field (reply, status, dueDate).
+      // The original question fields and attachment are immutable after creation.
       allow update: if isAdmin()
         && request.resource.data.questionText == resource.data.questionText
         && request.resource.data.raisedByUid == resource.data.raisedByUid
         && request.resource.data.raisedByName == resource.data.raisedByName
         && request.resource.data.dateRaised == resource.data.dateRaised
-        && request.resource.data.status == 'answered'
-        && request.resource.data.replyText is string
-        && request.resource.data.replyText.size() > 0;
+        && request.resource.data.attachmentUrl == resource.data.attachmentUrl
+        && request.resource.data.attachmentName == resource.data.attachmentName;
 
       allow delete: if isAdmin();
     }

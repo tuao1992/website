@@ -12,10 +12,18 @@ import {
   connectFirestoreEmulator,
   collection,
   doc,
-  addDoc,
+  setDoc,
   updateDoc,
   serverTimestamp,
+  Timestamp,
 } from 'firebase/firestore'
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  connectStorageEmulator,
+} from 'firebase/storage'
 import { COLLECTIONS } from './constants'
 
 const firebaseConfig = {
@@ -41,16 +49,38 @@ export const db = initializeFirestore(app, {
   ...(useEmulators ? {} : { experimentalAutoDetectLongPolling: true }),
 })
 
+export const storage = getStorage(app)
+
 if (useEmulators) {
   connectAuthEmulator(auth, 'http://127.0.0.1:9099', { disableWarnings: true })
   connectFirestoreEmulator(db, '127.0.0.1', 8080)
+  connectStorageEmulator(storage, '127.0.0.1', 9199)
 }
 
 export const questionsCollection = collection(db, COLLECTIONS.questions)
 export const usersCollection = collection(db, COLLECTIONS.users)
 
-export async function createQuestion(questionText: string, uid: string, displayName: string) {
-  await addDoc(questionsCollection, {
+/** Upload a file attachment and return its public download URL + original name. */
+export async function uploadAttachment(
+  uid: string,
+  file: File,
+): Promise<{ url: string; name: string }> {
+  const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_')
+  const path = `attachments/${uid}/${Date.now()}_${safeName}`
+  const storageRef = ref(storage, path)
+  await uploadBytes(storageRef, file)
+  const url = await getDownloadURL(storageRef)
+  return { url, name: file.name }
+}
+
+export async function createQuestion(
+  questionText: string,
+  uid: string,
+  displayName: string,
+  attachment?: { url: string; name: string } | null,
+) {
+  const newDocRef = doc(questionsCollection)
+  await setDoc(newDocRef, {
     questionText,
     raisedByUid: uid,
     raisedByName: displayName,
@@ -59,14 +89,30 @@ export async function createQuestion(questionText: string, uid: string, displayN
     replyText: null,
     replyByName: null,
     replyDate: null,
+    attachmentUrl: attachment?.url ?? null,
+    attachmentName: attachment?.name ?? null,
+    dueDate: null,
   })
 }
 
-export async function submitReply(questionId: string, replyText: string, replyByName: string) {
+export async function submitReply(
+  questionId: string,
+  replyText: string,
+  replyByName: string,
+  dueDate?: Date | null,
+) {
   await updateDoc(doc(db, COLLECTIONS.questions, questionId), {
     replyText,
     replyByName,
     replyDate: serverTimestamp(),
     status: 'answered',
+    dueDate: dueDate ? Timestamp.fromDate(dueDate) : null,
+  })
+}
+
+/** Admin-only: set or clear the due date on any question without changing its status/reply. */
+export async function setDueDate(questionId: string, dueDate: Date | null) {
+  await updateDoc(doc(db, COLLECTIONS.questions, questionId), {
+    dueDate: dueDate ? Timestamp.fromDate(dueDate) : null,
   })
 }

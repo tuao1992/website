@@ -1,0 +1,16 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /attachments/{userId}/{fileName} {
+      // Any signed-in user can read attachments (questions are visible to all staff)
+      allow read: if request.auth != null;
+      // Users can only upload to their own folder; max 5 MB; images/PDF/text only
+      allow create: if request.auth != null
+        && request.auth.uid == userId
+        && request.resource.size < 5 * 1024 * 1024
+        && (request.resource.contentType.matches('image/.*')
+            || request.resource.contentType == 'application/pdf'
+            || request.resource.contentType == 'text/plain');
+    }
+  }
+}

@@ -23,4 +23,9 @@ export interface Question {
   replyText: string | null
   replyByName: string | null
   replyDate: Timestamp | null
+  // Attachment (optional, one per question)
+  attachmentUrl: string | null
+  attachmentName: string | null
+  // Admin-set due date (optional)
+  dueDate: Timestamp | null
 }

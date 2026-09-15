@@ -32,12 +32,24 @@ users and Firestore documents.
 > This setup is for local development only — see sections below for deploying
 > to a real Firebase project.
 
+## Features
+
+- **Questions & answers** — any staff member posts a question; Akshay (admin) answers it; status moves from Open → Answered live across all devices
+- **Attachments** — attach one image, PDF, or text file per question (max 5 MB); stored in Firebase Storage; images display as a thumbnail inline
+- **Due dates** — admin can set an optional target date when answering, or independently on open questions; members see a "Due {date}" badge on the Open list
+- **Notifications** — enable browser notifications from your Account screen; you'll be notified when your question is answered (works while the PWA is open or backgrounded; see note below)
+- **Offline support** — previously loaded data stays accessible with no connection; new questions/replies posted offline sync automatically when connectivity returns
+- **PWA** — installable to phone home screen via "Add to Home Screen" on Android (Chrome) and iOS (Safari)
+
+> **Push notification note**: browser notifications fire when the PWA is running (foreground or backgrounded). True background push — notification arriving when the app is fully closed — requires Firebase Cloud Messaging + a Cloud Function, which is outside the current stack (Hosting-only, no server). The notification permission and detection code are already in place; adding FCM server-side later is documented in Firebase's FCM docs.
+
 ## Tech stack
 
 - React + Vite + TypeScript
 - Tailwind CSS v4
 - Firebase Authentication (email/password)
 - Cloud Firestore (real-time sync, offline persistence)
+- Firebase Storage (attachments)
 - Firebase Hosting
 - PWA via `vite-plugin-pwa` (installable, offline-capable)
 
@@ -68,7 +80,8 @@ their own password from the Account screen.
 1. Go to the [Firebase Console](https://console.firebase.google.com/) and create a new project (or reuse an existing one).
 2. **Authentication**: go to *Build > Authentication > Sign-in method*, enable **Email/Password**.
 3. **Firestore**: go to *Build > Firestore Database > Create database*. Choose **Production mode** and a region close to your users.
-4. **Register a Web app**: go to *Project settings > General > Your apps*, click the web icon (`</>`), register an app (no Firebase Hosting setup needed at this step). Copy the resulting `firebaseConfig` values.
+4. **Storage**: go to *Build > Storage > Get started*. Choose **Production mode**, same region as Firestore.
+5. **Register a Web app**: go to *Project settings > General > Your apps*, click the web icon (`</>`), register an app (no Firebase Hosting setup needed at this step). Copy the resulting `firebaseConfig` values.
 
 ## 3. Configure environment variables
 
@@ -111,7 +124,7 @@ global install needed, `npx` downloads it on demand):
 
 ```bash
 npx firebase-tools login
-npx firebase-tools deploy --only firestore:rules,firestore:indexes
+npx firebase-tools deploy --only firestore:rules,firestore:indexes,storage
 ```
 
 Do this **before** seeding/using the app against a real project, so it's
@@ -163,7 +176,7 @@ Output goes to `dist/`. Preview it locally with `npm run preview`.
 ## 9. Deploy to Firebase Hosting
 
 ```bash
-npx firebase-tools deploy --only hosting,firestore:rules,firestore:indexes
+npx firebase-tools deploy --only hosting,firestore:rules,firestore:indexes,storage
 ```
 
 This prints a `https://<your-project>.web.app` URL - share that with staff.
@@ -204,6 +217,7 @@ scripts/
   seedUsers.mjs            One-time: create the 9 accounts
   resetPassword.mjs        Admin-run: reset one user's password
 firestore.rules            Security rules (see below)
+storage.rules              Firebase Storage security rules
 ```
 
 ## Security model (firestore.rules)
@@ -221,6 +235,8 @@ firestore.rules            Security rules (see below)
 
 - **Email domain placeholder**: `weldrite.app` in `scripts/seedUsers.mjs` - replace with the real domain before production seeding.
 - **No router**: only 4 screens, no deep links needed, so view switching is a simple `useState`, not `react-router`.
-- **No Cloud Functions**: by design, per the specified stack (Hosting only). This is why admin-assisted password resets are a script, not an in-app button.
+- **No Cloud Functions**: by design, per the specified stack (Hosting only). This is why admin-assisted password resets are a script, not an in-app button, and why push notifications only fire while the PWA is running (not when it is fully closed).
 - **No pagination**: fine at this scale (a handful of staff, modest question volume); would need revisiting if question volume grows into the thousands.
 - **No self-service "forgot password" email link**: could be added later via Firebase Auth's `sendPasswordResetEmail`, but requires the seeded email addresses to be real, deliverable inboxes.
+- **Attachment type/size rules**: enforced both client-side (5 MB guard, `accept` attribute) and server-side in `storage.rules`. The Storage emulator does not enforce content-type rules, so test type validation against a real Firebase project.
+- **One attachment per question**: by design. Adding more would require a subcollection or an array field — straightforward to extend if needed.
