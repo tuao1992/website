@@ -1,11 +1,19 @@
 package com.weldrite.app.data.model
 
-/** Packaging row from a product spec table (Size / Inner Carton / Master Carton). */
-data class Packaging(
-    val size: String,
-    val innerCarton: String,
-    val masterCarton: String,
-)
+/**
+ * A product's packaging / specification table exactly as weldrite.in publishes it.
+ * Most products use Size | Inner Carton | Master Carton; ball valves use Size | PKG PCS.
+ */
+data class PackagingTable(
+    val headers: List<String>,
+    val rows: List<List<String>>,
+) {
+    fun isEmpty(): Boolean = rows.isEmpty()
+
+    companion object {
+        val EMPTY = PackagingTable(emptyList(), emptyList())
+    }
+}
 
 /** A Weldrite product (domain model used throughout the UI). */
 data class Product(
@@ -19,7 +27,9 @@ data class Product(
     val permalink: String,
     val shortDescription: String,
     val benefits: List<String>,
-    val packaging: List<Packaging>,
+    /** Application steps (e.g. TankSeal's "HOW TO APPLY"); empty for most products. */
+    val usage: List<String>,
+    val packaging: PackagingTable,
     val description: String,
 ) {
     /** Applications are derived from category for a richer detail screen. */
@@ -87,6 +97,24 @@ data class AppContent(
     val products: List<Product>,
     val downloads: List<DownloadItem>,
 )
+
+/**
+ * Icon key for a category slug, resolved by ui.components.categoryIcon. Shared by the
+ * bundled seed and live refresh so categories keep their icons after a sync.
+ */
+object CategoryIcons {
+    fun forSlug(slug: String): String = when (slug) {
+        "abs", "cpvc", "pvc", "upvc" -> "solvent"
+        "adhesives" -> "adhesive"
+        "ball-valve" -> "valve"
+        "cleaner" -> "cleaner"
+        "primer" -> "primer"
+        "rubber-lubricant" -> "lubricant"
+        "teflon-tape" -> "tape"
+        "waterproofing" -> "waterproof"
+        else -> "product"
+    }
+}
 
 /** Maps a product category to representative real-world applications. */
 object ApplicationHints {

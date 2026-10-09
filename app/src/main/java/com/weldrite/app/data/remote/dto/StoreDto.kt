@@ -1,6 +1,7 @@
 package com.weldrite.app.data.remote.dto
 
 import com.weldrite.app.core.HtmlUtil
+import com.weldrite.app.data.model.CategoryIcons
 import com.weldrite.app.data.model.Product
 import com.weldrite.app.data.model.ProductCategory
 
@@ -30,28 +31,31 @@ data class StoreCategoryDto(
 )
 
 fun StoreProductDto.toDomain(): Product {
-    val catNames = categories?.mapNotNull { it.name } ?: emptyList()
+    val catNames = categories.orEmpty().map { HtmlUtil.text(it.name) }.filter { it.isNotEmpty() }
+    val short = HtmlUtil.parseShortDescription(short_description)
+    val long = HtmlUtil.parseDescription(description)
     return Product(
         id = id,
-        name = HtmlUtil.clean(name),
+        name = HtmlUtil.text(name),
         slug = slug.orEmpty(),
         sku = sku.orEmpty(),
         category = catNames.firstOrNull() ?: "Other",
         categories = catNames,
         imageUrl = images?.firstOrNull()?.src.orEmpty(),
         permalink = permalink.orEmpty(),
-        shortDescription = HtmlUtil.clean(short_description),
-        benefits = HtmlUtil.parseBenefits(short_description),
-        packaging = HtmlUtil.parsePackaging(description),
-        description = HtmlUtil.clean(description),
+        shortDescription = short.text,
+        benefits = short.benefits,
+        usage = short.usage,
+        packaging = long.packaging,
+        description = long.prose,
     )
 }
 
 fun StoreCategoryDto.toDomain(): ProductCategory = ProductCategory(
     id = id,
-    name = name.orEmpty(),
+    name = HtmlUtil.text(name),
     slug = slug.orEmpty(),
     productCount = count ?: 0,
-    icon = "product",
+    icon = CategoryIcons.forSlug(slug.orEmpty()),
     imageUrl = image?.src.orEmpty(),
 )

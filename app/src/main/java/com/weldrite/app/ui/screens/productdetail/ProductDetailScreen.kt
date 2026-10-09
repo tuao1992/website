@@ -50,7 +50,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.weldrite.app.core.ContactActions
-import com.weldrite.app.data.model.Packaging
+import com.weldrite.app.data.model.PackagingTable
 import com.weldrite.app.data.model.Product
 import com.weldrite.app.ui.components.CategoryPill
 import com.weldrite.app.ui.components.LoadingState
@@ -192,16 +192,31 @@ private fun ProductContent(
             }
         }
 
-        val descBody = product.description
-            .lineSequence()
-            .filterNot { line -> line.isBlank() || Regex("^\\s*\\d+\\s?ml").containsMatchIn(line) || line.trim().lowercase() in setOf("size", "inner carton", "master carton") }
-            .joinToString("\n")
-            .trim()
-        if (descBody.isNotBlank() && descBody != product.shortDescription) {
+        if (product.usage.isNotEmpty()) {
+            item { DetailSection("How to Apply") }
+            item {
+                Column(Modifier.padding(horizontal = 16.dp)) {
+                    product.usage.forEachIndexed { index, step ->
+                        Row(Modifier.padding(vertical = 3.dp), verticalAlignment = Alignment.Top) {
+                            Text(
+                                "${index + 1}.",
+                                style = MaterialTheme.typography.bodyMedium,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier.width(24.dp),
+                            )
+                            Text(step, style = MaterialTheme.typography.bodyMedium)
+                        }
+                    }
+                }
+            }
+        }
+
+        if (product.description.isNotBlank()) {
             item { DetailSection("Description") }
             item {
                 Text(
-                    descBody,
+                    product.description,
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(horizontal = 16.dp),
@@ -209,9 +224,9 @@ private fun ProductContent(
             }
         }
 
-        if (product.packaging.isNotEmpty()) {
+        if (!product.packaging.isEmpty()) {
             item { DetailSection("Specifications & Packaging") }
-            item { PackagingTable(product.packaging) }
+            item { PackagingCard(product.packaging) }
         }
 
         item { DetailSection("Applications") }
@@ -249,7 +264,9 @@ private fun DetailSection(title: String) {
 }
 
 @Composable
-private fun PackagingTable(rows: List<Packaging>) {
+private fun PackagingCard(table: PackagingTable) {
+    // The size column gets extra room; the remaining columns share the rest evenly.
+    val weight = { column: Int -> if (column == 0) 1.4f else 1f }
     Card(
         Modifier.fillMaxWidth().padding(horizontal = 16.dp),
         shape = RoundedCornerShape(14.dp),
@@ -257,18 +274,19 @@ private fun PackagingTable(rows: List<Packaging>) {
     ) {
         Column(Modifier.padding(vertical = 4.dp)) {
             Row(Modifier.padding(horizontal = 14.dp, vertical = 10.dp)) {
-                TableCell("Size", Modifier.weight(1.4f), header = true)
-                TableCell("Inner Carton", Modifier.weight(1f), header = true)
-                TableCell("Master Carton", Modifier.weight(1f), header = true)
+                table.headers.forEachIndexed { column, header ->
+                    TableCell(header, Modifier.weight(weight(column)), header = true)
+                }
             }
             HorizontalDivider()
-            rows.forEachIndexed { index, row ->
+            table.rows.forEachIndexed { index, row ->
                 Row(Modifier.padding(horizontal = 14.dp, vertical = 10.dp)) {
-                    TableCell(row.size, Modifier.weight(1.4f))
-                    TableCell(row.innerCarton, Modifier.weight(1f))
-                    TableCell(row.masterCarton, Modifier.weight(1f))
+                    row.forEachIndexed { column, cell ->
+                        // Some published rows leave a quantity blank; show a dash, not a gap.
+                        TableCell(cell.ifBlank { "—" }, Modifier.weight(weight(column)))
+                    }
                 }
-                if (index < rows.lastIndex) HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
+                if (index < table.rows.lastIndex) HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
             }
         }
     }

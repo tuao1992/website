@@ -53,7 +53,14 @@ Output (minified, R8-obfuscated, signed): `app/build/outputs/apk/release/app-rel
 ./gradlew clean :app:assembleDebug :app:assembleRelease
 ```
 
-## 5. Install on a device
+## 5. Run the unit tests
+```bash
+./gradlew :app:testDebugUnitTest
+```
+Covers the product HTML parser and checks that the bundled seed matches what the app's live
+refresh produces (see README › Refreshing the bundled content).
+
+## 6. Install on a device
 ```bash
 adb install -r app/build/outputs/apk/release/app-release.apk
 ```

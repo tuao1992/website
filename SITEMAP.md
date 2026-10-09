@@ -20,13 +20,13 @@ All app content is extracted from this site via the WordPress REST API
 | Download (Brochure) | `/wp-content/uploads/.../Brochure-2026…pdf` | Downloads tab |
 | Become a Distributor | `/become-a-distributor/` | Distributor screen |
 
-## Product catalogue (WooCommerce — 35 products across 11 categories)
+## Product catalogue (WooCommerce — 37 products across 11 categories, as of Oct 2026)
 | Category | Products |
 |---|---|
 | UPVC | 7 |
-| CPVC | 5 |
+| Adhesives | 6 |
 | Teflon Tape | 6 |
-| Adhesives | 4 |
+| CPVC | 5 |
 | Ball Valve | 3 |
 | Cleaner | 3 |
 | Waterproofing | 3 |
@@ -35,15 +35,18 @@ All app content is extracted from this site via the WordPress REST API
 | Primer | 1 |
 | Rubber Lubricant | 1 |
 
-Each product carries: name, SKU, category, image, short description (benefit bullets),
-full description, and a Size / Inner Carton / Master Carton packaging table.
+Each product carries: name, SKU, category, image, short description (benefit bullets, plus
+"HOW TO APPLY" steps on some products) and a packaging table — Size / Inner Carton /
+Master Carton for most products, Size / PKG PCS for ball valves.
 
 ## Home page sections (replicated in-app)
-- Hero banner slider ("Strong & Reliable Solvent Cement / Your Trusted Bonding Partner")
+- Hero banner slider, 4 slides ("Strong & Reliable Solvent Cement / Your Trusted Bonding Partner")
 - Category highlights (Solvent Cements, Ball Valve, Teflon Tape, Adhesives, Waterproofing)
 - "Why Weldrite?" — International Quality / Excellent Service / Fast & Accurate Deliveries
 - "Why Choose Us?" bullet list
 - Company stats: **17+ years**, **200+ distributors**, **Pan India**, **ISO certified since 2007**
+  (supplied in the app brief; the current homepage states "ISO-certified since 2007" and
+  "available across the country" but does not show these counters)
 - Featured / new products
 - Contact & Distributor calls-to-action
 

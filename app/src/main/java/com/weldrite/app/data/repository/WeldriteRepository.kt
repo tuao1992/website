@@ -1,6 +1,7 @@
 package com.weldrite.app.data.repository
 
 import android.content.Context
+import androidx.room.withTransaction
 import com.weldrite.app.core.Config
 import com.weldrite.app.data.local.WeldriteDatabase
 import com.weldrite.app.data.local.toDomain
@@ -25,7 +26,7 @@ import kotlinx.coroutines.flow.map
 class WeldriteRepository(
     context: Context,
     private val api: WeldriteApi = NetworkModule.api(),
-    db: WeldriteDatabase = WeldriteDatabase.get(context),
+    private val db: WeldriteDatabase = WeldriteDatabase.get(context),
 ) {
     private val seedSource = SeedDataSource(context.applicationContext)
     private val productDao = db.productDao()
@@ -51,33 +52,56 @@ class WeldriteRepository(
 
     /** Products in the same category, excluding the given product (for "Related"). */
     suspend fun relatedProducts(product: Product, limit: Int = 6): List<Product> =
-        seedSource.load().products
-            .filter { it.category == product.category && it.id != product.id }
-            .take(limit)
+        productDao.related(product.category, product.id, limit).map { it.toDomain() }
 
     /** Populate Room from the bundled seed the first time the app runs. */
     suspend fun seedIfNeeded() {
         val seed = seedSource.load()
-        if (productDao.count() == 0) {
-            productDao.upsertAll(seed.products.map { it.toEntity() })
-            categoryDao.upsertAll(seed.categories.map { it.toEntity() })
+        db.withTransaction {
+            if (productDao.count() == 0) {
+                productDao.upsertAll(seed.products.map { it.toEntity() })
+                categoryDao.upsertAll(seed.categories.map { it.toEntity() })
+            }
+            // Downloads are tiny and curated in the seed — mirror it exactly.
+            downloadDao.clear()
+            downloadDao.upsertAll(seed.downloads.map { it.toEntity() })
         }
-        // Downloads are tiny and may change — always keep them in sync with the seed.
-        downloadDao.upsertAll(seed.downloads.map { it.toEntity() })
     }
 
     /** Refresh products & categories from the live WooCommerce Store API. */
     suspend fun refresh(): Result<Unit> = runCatching {
         if (!Config.ENABLE_LIVE_REFRESH) return@runCatching
-        val remoteProducts = api.getProducts(perPage = 100, page = 1).map { it.toDomain() }
-        val remoteCategories = api.getCategories(perPage = 100)
+        val remoteProducts = fetchAllProducts()
+        val remoteCategories = api.getCategories(perPage = STORE_PAGE_SIZE)
             .map { it.toDomain() }
             .filter { it.productCount > 0 }
-        if (remoteProducts.isNotEmpty()) {
-            productDao.upsertAll(remoteProducts.map { it.toEntity() })
+        db.withTransaction {
+            // Reconcile only against non-empty responses so a bad fetch never wipes the cache.
+            if (remoteProducts.isNotEmpty()) {
+                productDao.upsertAll(remoteProducts.map { it.toEntity() })
+                productDao.deleteNotIn(remoteProducts.map { it.id })
+            }
+            if (remoteCategories.isNotEmpty()) {
+                categoryDao.upsertAll(remoteCategories.map { it.toEntity() })
+                categoryDao.deleteNotIn(remoteCategories.map { it.id })
+            }
         }
-        if (remoteCategories.isNotEmpty()) {
-            categoryDao.upsertAll(remoteCategories.map { it.toEntity() })
+    }
+
+    /** Pages through the Store API until a short page marks the end of the catalogue. */
+    private suspend fun fetchAllProducts(): List<Product> {
+        val all = mutableListOf<Product>()
+        for (page in 1..MAX_STORE_PAGES) {
+            val batch = api.getProducts(perPage = STORE_PAGE_SIZE, page = page)
+            all += batch.map { it.toDomain() }
+            if (batch.size < STORE_PAGE_SIZE) break
         }
+        return all
+    }
+
+    private companion object {
+        /** The Store API caps per_page at 100. */
+        const val STORE_PAGE_SIZE = 100
+        const val MAX_STORE_PAGES = 20
     }
 }

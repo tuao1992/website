@@ -1,1451 +1,1916 @@
 {
-  "company": {
-    "name": "Weldrite",
-    "legalName": "Sindhucon Products & Services Pvt. Ltd.",
-    "tagline": "Your Trusted Bonding Partner",
-    "subTagline": "Strong & Reliable Solvent Cement",
-    "about": "Weldrite is a brand of Sindhucon Products & Services Pvt. Ltd., an ISO-certified company since 2007. The products are manufactured in Navi Mumbai, Maharashtra, in collaboration with Bluestream, USA. Our products are available across the country. Weldrite has a large range of quality chemicals & products used in construction & repair. These include solvent cement, Ball valve, Teflon tape, Epoxy Adhesives, Waterproofing chemicals, etc. Weldrite also has a variety of Cyanoacrylate adhesives & other Industrial & Rust cleaning and protection products.",
-    "welcome": "Welcome to Weldrite Solvent Cement, where quality meets innovation in every application. Our industry-leading solvent cement is engineered to provide reliable, long-lasting bonds for a wide range of construction and industrial applications.",
-    "stats": [
-      {
-        "value": "17+",
-        "label": "Years in Business"
-      },
-      {
-        "value": "200+",
-        "label": "Distributors"
-      },
-      {
-        "value": "Pan India",
-        "label": "Presence"
-      },
-      {
-        "value": "ISO",
-        "label": "Certified Since 2007"
-      }
-    ],
-    "whyChooseUs": [
-      "High-performance solvent cement for leak-proof bonding",
-      "Trusted by professionals for industrial & domestic use",
-      "Advanced formulation for durability & chemical resistance",
-      "Easy application with quick setting time",
-      "Compliant with international quality standards",
-      "Dedicated customer support & expert guidance"
-    ],
-    "features": [
-      {
-        "title": "International Quality",
-        "points": [
-          "Comparable to International Brands",
-          "Meet all relevant ASTM & ANSI Standards",
-          "ISO Certified",
-          "Each batch is tested & test reports are available"
-        ]
-      },
-      {
-        "title": "Excellent Service",
-        "points": [
-          "Dedicated customer service executives",
-          "Strong Tech Support",
-          "Specially Coated Cans - No Rusting",
-          "Strong 7 Ply Outer Cartons - No Damage"
-        ]
-      },
-      {
-        "title": "Fast & Accurate Deliveries",
-        "points": [
-          "Products typically shipped within 2 days",
-          "One Stop Solution for all Requirements",
-          "Real-time order tracking for transparency"
-        ]
-      }
-    ],
-    "certifications": [
-      {
-        "name": "ISO Certified",
-        "detail": "ISO-certified company since 2007"
-      },
-      {
-        "name": "ASTM Standards",
-        "detail": "Meets all relevant ASTM standards (ASTM D 2564 / D 2846)"
-      },
-      {
-        "name": "ANSI Standards",
-        "detail": "Compliant with ANSI quality standards"
-      },
-      {
-        "name": "NSF Listed",
-        "detail": "Formulated to NSF potable-water safety guidelines"
-      },
-      {
-        "name": "Made in Collaboration",
-        "detail": "Manufactured in collaboration with Bluestream, USA"
-      }
+ "company": {
+  "name": "Weldrite",
+  "legalName": "Sindhucon Products & Services Pvt. Ltd.",
+  "tagline": "Your Trusted Bonding Partner",
+  "subTagline": "Strong & Reliable Solvent Cement",
+  "about": "Weldrite is a brand of Sindhucon Products & Services Pvt. Ltd., an ISO-certified company since 2007. The products are manufactured in Navi Mumbai, Maharashtra, in collaboration with Bluestream, USA. Our products are available across the country. Weldrite has a large range of quality chemicals & products used in construction & repair. These include solvent cement, Ball valve, Teflon tape, Epoxy Adhesives, Waterproofing chemicals, etc. Weldrite also has a variety of Cyanoacrylate adhesives & other Industrial & Rust cleaning and protection products.",
+  "welcome": "Welcome to Weldrite Solvent Cement, where quality meets innovation in every application. Our industry-leading solvent cement is engineered to provide reliable, long-lasting bonds for a wide range of construction and industrial applications.",
+  "stats": [
+   {
+    "value": "17+",
+    "label": "Years in Business"
+   },
+   {
+    "value": "200+",
+    "label": "Distributors"
+   },
+   {
+    "value": "Pan India",
+    "label": "Presence"
+   },
+   {
+    "value": "ISO",
+    "label": "Certified Since 2007"
+   }
+  ],
+  "whyChooseUs": [
+   "High-performance solvent cement for leak-proof bonding",
+   "Trusted by professionals for industrial & domestic use",
+   "Advanced formulation for durability & chemical resistance",
+   "Easy application with quick setting time",
+   "Compliant with international quality standards",
+   "Dedicated customer support & expert guidance"
+  ],
+  "features": [
+   {
+    "title": "International Quality",
+    "points": [
+     "Comparable to International Brands",
+     "Meet all relevant ASTM & ANSI Standards",
+     "ISO Certified",
+     "Each batch is tested & test reports are available"
     ]
-  },
-  "contact": {
-    "phone": "+917498911130",
-    "phoneDisplay": "+91 74989 11130",
-    "whatsapp": "917498911130",
-    "email": "info@sindhucon.com",
-    "hours": "24/7",
-    "address": "Tulsi Darpan, 302, Plot No-158, Sector 28, Vashi, Navi Mumbai, Maharashtra 400703",
-    "city": "Navi Mumbai",
-    "state": "Maharashtra",
-    "pincode": "400703",
-    "lat": 19.076,
-    "lng": 73.0,
-    "website": "https://weldrite.in"
-  },
-  "categories": [
-    {
-      "id": 46,
-      "name": "ABS",
-      "slug": "abs",
-      "productCount": 1,
-      "icon": "solvent",
-      "imageUrl": ""
-    },
-    {
-      "id": 49,
-      "name": "Adhesives",
-      "slug": "adhesives",
-      "productCount": 4,
-      "icon": "adhesive",
-      "imageUrl": ""
-    },
-    {
-      "id": 47,
-      "name": "Ball Valve",
-      "slug": "ball-valve",
-      "productCount": 3,
-      "icon": "valve",
-      "imageUrl": ""
-    },
-    {
-      "id": 51,
-      "name": "Cleaner",
-      "slug": "cleaner",
-      "productCount": 3,
-      "icon": "cleaner",
-      "imageUrl": ""
-    },
-    {
-      "id": 43,
-      "name": "CPVC",
-      "slug": "cpvc",
-      "productCount": 5,
-      "icon": "solvent",
-      "imageUrl": ""
-    },
-    {
-      "id": 52,
-      "name": "Primer",
-      "slug": "primer",
-      "productCount": 1,
-      "icon": "primer",
-      "imageUrl": ""
-    },
-    {
-      "id": 45,
-      "name": "PVC",
-      "slug": "pvc",
-      "productCount": 1,
-      "icon": "solvent",
-      "imageUrl": ""
-    },
-    {
-      "id": 50,
-      "name": "Rubber Lubricant",
-      "slug": "rubber-lubricant",
-      "productCount": 1,
-      "icon": "lubricant",
-      "imageUrl": ""
-    },
-    {
-      "id": 48,
-      "name": "Teflon Tape",
-      "slug": "teflon-tape",
-      "productCount": 6,
-      "icon": "tape",
-      "imageUrl": ""
-    },
-    {
-      "id": 44,
-      "name": "UPVC",
-      "slug": "upvc",
-      "productCount": 7,
-      "icon": "solvent",
-      "imageUrl": ""
-    },
-    {
-      "id": 53,
-      "name": "Waterproofing",
-      "slug": "waterproofing",
-      "productCount": 3,
-      "icon": "waterproof",
-      "imageUrl": ""
-    }
+   },
+   {
+    "title": "Excellent Service",
+    "points": [
+     "Dedicated customer service executives",
+     "Strong Tech Support",
+     "Specially Coated Cans - No Rusting",
+     "Strong 7 Ply Outer Cartons - No Damage"
+    ]
+   },
+   {
+    "title": "Fast & Accurate Deliveries",
+    "points": [
+     "Products typically shipped within 2 days",
+     "One Stop Solution for all Requirements",
+     "Real-time order tracking for transparency"
+    ]
+   }
   ],
-  "products": [
-    {
-      "id": 3653,
-      "name": "Tile Cleaner",
-      "slug": "tile-cleaner",
-      "sku": "",
-      "category": "Cleaner",
-      "categories": [
-        "Cleaner"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2026/03/Tile-Cleaner-2026.png",
-      "permalink": "https://weldrite.in/product/tile-cleaner/",
-      "shortDescription": "Description:\n Tile Cleaner Heavy Duty advanced formulation for rapid actions remove stubborn stains",
-      "benefits": [
-        "Tile Cleaner Heavy Duty advanced formulation for rapid actions remove stubborn stains"
-      ],
-      "packaging": [
-        {
-          "size": "500 ml",
-          "innerCarton": "1",
-          "masterCarton": "72"
-        }
-      ],
-      "description": "Size \n Inner Carton \n Master Carton \n 500 ml \n 1 \n 72"
-    },
-    {
-      "id": 3550,
-      "name": "SBR LATEX PRO",
-      "slug": "sbr-latex-pro",
-      "sku": "",
-      "category": "Waterproofing",
-      "categories": [
-        "Waterproofing"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-23-at-13.02.05.jpeg",
-      "permalink": "https://weldrite.in/product/sbr-latex-pro/",
-      "shortDescription": "Description: \n Highly potent and versatile SBR LATEX based liquid for high performance applications in waterproofing and repairs. \n Used for repair of spelled concrete floors, columns, beams, chhajas, slab & waterproofing of toilets & bathrooms, small terraces, etc.",
-      "benefits": [
-        "Highly potent and versatile SBR LATEX based liquid for high performance applications in waterproofing and repairs",
-        "Used for repair of spelled concrete floors, columns, beams, chhajas, slab & waterproofing of toilets & bathrooms, small terraces, etc"
-      ],
-      "packaging": [],
-      "description": ""
-    },
-    {
-      "id": 3478,
-      "name": "WLS – WATERPROOFING LIQUID SOLUTION",
-      "slug": "wls-waterproofing-liquid-solution",
-      "sku": "",
-      "category": "Waterproofing",
-      "categories": [
-        "Waterproofing"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-23-at-1.01.21-PM.jpeg",
-      "permalink": "https://weldrite.in/product/wls-waterproofing-liquid-solution/",
-      "shortDescription": "Description:\n  It’s a styrene butadiene latex supplied as a ready to use bonding agent in liquid consistency.\n  Bonds strongly to old & new concrete and to plaster\n  Used for repair of spelled concrete floors, columns, beams, chhajas, slab & waterproofing of toilets & bathrooms, small terraces, etc",
-      "benefits": [
-        "It’s a styrene butadiene latex supplied as a ready to use bonding agent in liquid consistency",
-        " Bonds strongly to old & new concrete and to plaster",
-        " Used for repair of spelled concrete floors, columns, beams, chhajas, slab & waterproofing of toilets & bathrooms, small terraces, etc"
-      ],
-      "packaging": [],
-      "description": ""
-    },
-    {
-      "id": 3476,
-      "name": "SBR LATEX AR",
-      "slug": "sbr-latex-ar",
-      "sku": "",
-      "category": "Waterproofing",
-      "categories": [
-        "Waterproofing"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-23-at-1.00.59-PM.jpeg",
-      "permalink": "https://weldrite.in/product/sbr-latex-ar/",
-      "shortDescription": "Description:\n  It’s a styrene butadiene latex supplied as a ready to use bonding agent in liquid consistency.\n  Bonds strongly to old & new concrete and to plaster\n  Used for repair of spelled concrete floors, columns, beams, chhajas, slab & waterproofing of toilets & bathrooms, small terraces, etc",
-      "benefits": [
-        "It’s a styrene butadiene latex supplied as a ready to use bonding agent in liquid consistency",
-        " Bonds strongly to old & new concrete and to plaster",
-        " Used for repair of spelled concrete floors, columns, beams, chhajas, slab & waterproofing of toilets & bathrooms, small terraces, etc"
-      ],
-      "packaging": [],
-      "description": ""
-    },
-    {
-      "id": 3474,
-      "name": "Purple Primer",
-      "slug": "purple-primer",
-      "sku": "",
-      "category": "Primer",
-      "categories": [
-        "Primer"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-23-at-12.48.27-PM.jpeg",
-      "permalink": "https://weldrite.in/product/purple-primer/",
-      "shortDescription": "Description:\n  High Strength Industrial Usages",
-      "benefits": [
-        "High Strength Industrial Usages"
-      ],
-      "packaging": [
-        {
-          "size": "118 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "144"
-        },
-        {
-          "size": "237 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "96"
-        },
-        {
-          "size": "473 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "48"
-        },
-        {
-          "size": "946 ml Tin",
-          "innerCarton": "12",
-          "masterCarton": "24"
-        }
-      ],
-      "description": "Size \n Inner Carton \n Master Carton \n 118 ml Tin \n 24 \n 144 \n 237 ml Tin \n 24 \n 96 \n 473 ml Tin \n 24 \n 48 \n 946 ml Tin \n 12 \n 24"
-    },
-    {
-      "id": 3472,
-      "name": "ABS Solvent Cement",
-      "slug": "abs-solvent-cement",
-      "sku": "",
-      "category": "ABS",
-      "categories": [
-        "ABS"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-23-at-12.47.08-PM.jpeg",
-      "permalink": "https://weldrite.in/product/abs-solvent-cement/",
-      "shortDescription": "Description:\n  Medium Body, Fast Set\n  Upto 6” (150mm) dia pipe",
-      "benefits": [
-        "Medium Body, Fast Set",
-        " Upto 6” (150mm) dia pipe"
-      ],
-      "packaging": [
-        {
-          "size": "118 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "144"
-        },
-        {
-          "size": "237 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "96"
-        },
-        {
-          "size": "473 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "48"
-        },
-        {
-          "size": "946 ml Tin",
-          "innerCarton": "12",
-          "masterCarton": "24"
-        }
-      ],
-      "description": "Size \n Inner Carton \n Master Carton \n 118 ml Tin \n 24 \n 144 \n 237 ml Tin \n 24 \n 96 \n 473 ml Tin \n 24 \n 48 \n 946 ml Tin \n 12 \n 24"
-    },
-    {
-      "id": 3418,
-      "name": "Teflon Tape 12m x 12.5mm",
-      "slug": "teflon-tape-12m-x-12-5mm",
-      "sku": "",
-      "category": "Teflon Tape",
-      "categories": [
-        "Teflon Tape"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-21-at-10.48.04-AM-1.jpeg",
-      "permalink": "https://weldrite.in/product/teflon-tape-12m-x-12-5mm/",
-      "shortDescription": "Description:\n Teflon Tape 12m x 12.5mm x 6g (net teflon)\n100% PTFE",
-      "benefits": [
-        "Teflon Tape 12m x 12.5mm x 6g (net teflon)",
-        "100% PTFE"
-      ],
-      "packaging": [],
-      "description": "Size \n Inner Carton \n Master Carton \n 12m x 12.5mm \n 250 \n 1000"
-    },
-    {
-      "id": 3416,
-      "name": "Teflon Tape 8m x 12mm",
-      "slug": "teflon-tape-8m-x-12mm",
-      "sku": "",
-      "category": "Teflon Tape",
-      "categories": [
-        "Teflon Tape"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-21-at-10.48.04-AM.jpeg",
-      "permalink": "https://weldrite.in/product/teflon-tape-8m-x-12mm/",
-      "shortDescription": "Description:\n Teflon Tape 8m x 12mm x 4g (net teflon)\n100% PTFE",
-      "benefits": [
-        "Teflon Tape 8m x 12mm x 4g (net teflon)",
-        "100% PTFE"
-      ],
-      "packaging": [],
-      "description": "Size \n Inner Carton \n Master Carton \n 8m x 12mm \n 250 \n 1000"
-    },
-    {
-      "id": 3333,
-      "name": "Tap Cleaner",
-      "slug": "tap-cleaner",
-      "sku": "",
-      "category": "Cleaner",
-      "categories": [
-        "Cleaner"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/TAP-METAL-CLEANER-2.jpg-scaled.jpeg",
-      "permalink": "https://weldrite.in/product/tap-cleaner/",
-      "shortDescription": "Description:\n Tap & Metal Cleaner Advanced Formula\n For: \n Taps\n Brass & Copper\n Handles\n Cooking Hobs\n Chrome Cleaner, CP Fittings, Appliances",
-      "benefits": [
-        "Tap & Metal Cleaner Advanced Formula",
-        "For:",
-        "Taps",
-        "Brass & Copper",
-        "Handles",
-        "Cooking Hobs",
-        "Chrome Cleaner, CP Fittings, Appliances"
-      ],
-      "packaging": [
-        {
-          "size": "250 ml",
-          "innerCarton": "24",
-          "masterCarton": "72"
-        }
-      ],
-      "description": "Size \n Inner Carton \n Master Carton \n 250 ml \n 24 \n 72"
-    },
-    {
-      "id": 3331,
-      "name": "Drain Cleaner",
-      "slug": "drain-cleaner",
-      "sku": "",
-      "category": "Cleaner",
-      "categories": [
-        "Cleaner"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-07-at-3.03.37-PM.jpeg",
-      "permalink": "https://weldrite.in/product/drain-cleaner/",
-      "shortDescription": "Description:\n Super Strong Drain Cleaner\nCleans and Opens Blocked Drain Pipes\n Net Qty: 50g",
-      "benefits": [
-        "Super Strong Drain Cleaner",
-        "Cleans and Opens Blocked Drain Pipes",
-        "Net Qty: 50g"
-      ],
-      "packaging": [
-        {
-          "size": "50 gm Pouch",
-          "innerCarton": "50",
-          "masterCarton": "500"
-        }
-      ],
-      "description": "Size \n Inner Carton \n Master Carton \n 50 gm Pouch \n 50 \n 500"
-    },
-    {
-      "id": 2940,
-      "name": "Epoxy Adhesive",
-      "slug": "epoxy-adhesive",
-      "sku": "",
-      "category": "Adhesives",
-      "categories": [
-        "Adhesives"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/Epoxy-advance-pro.png",
-      "permalink": "https://weldrite.in/product/epoxy-adhesive/",
-      "shortDescription": "Description:\n Clear transparent epoxy adhesive\n Good for bonding glass to other materials\n Higher bond strength\n Bonds anything to anything, like metals, ceramics, marble, granite, leather, wood, and rubber.",
-      "benefits": [
-        "Clear transparent epoxy adhesive",
-        "Good for bonding glass to other materials",
-        "Higher bond strength",
-        "Bonds anything to anything, like metals, ceramics, marble, granite, leather, wood, and rubber"
-      ],
-      "packaging": [
-        {
-          "size": "800gm H)",
-          "innerCarton": "3",
-          "masterCarton": "12"
-        }
-      ],
-      "description": "Size \n Inner Carton \n Master Carton \n 36 gm (20R+16H) Tube \n 12 \n 192 \n 90 gm (50R+40H) Tube\n 8 \n 96 \n 36 gm (20R+16H) \n 384 \n 90 gm (50R+40H) \n 8 \n 96 \n 450 gm (250R+200H) \n 6 \n 24 \n 900 gm (500R+400H) \n 4 \n 16 \n 1.8 kg (1kg R+800gm H) \n 3 \n 12"
-    },
-    {
-      "id": 2938,
-      "name": "Rubber Lubricant",
-      "slug": "rubber-lubricant",
-      "sku": "",
-      "category": "Rubber Lubricant",
-      "categories": [
-        "Rubber Lubricant"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/RUBER-LUBRICANT.jpg",
-      "permalink": "https://weldrite.in/product/rubber-lubricant/",
-      "shortDescription": "Description:\n For Simple , Quick , Watertight Jointing of Weldrite PVC Soil , Waste and Rain Water (SWR) Drairage Fitting",
-      "benefits": [
-        "For Simple , Quick , Watertight Jointing of Weldrite PVC Soil , Waste and Rain Water (SWR) Drairage Fitting"
-      ],
-      "packaging": [
-        {
-          "size": "50 gm",
-          "innerCarton": "60",
-          "masterCarton": "240"
-        },
-        {
-          "size": "100 gm",
-          "innerCarton": "48",
-          "masterCarton": "192"
-        },
-        {
-          "size": "250 gm",
-          "innerCarton": "24",
-          "masterCarton": "96"
-        },
-        {
-          "size": "500 gm",
-          "innerCarton": "12",
-          "masterCarton": "48"
-        },
-        {
-          "size": "1000 gm",
-          "innerCarton": "6",
-          "masterCarton": "24"
-        }
-      ],
-      "description": "Size \n Inner Carton \n Master Carton \n 50 gm \n 60 \n 240 \n 100 gm \n 48 \n 192 \n 250 gm \n 24 \n 96 \n 500 gm \n 12 \n 48 \n 1000 gm \n 6 \n 24"
-    },
-    {
-      "id": 2936,
-      "name": "W501 Instant Glue Cyanoacrylate Adhesive",
-      "slug": "w501-instant-glue-cyanoacrylate-adhesive",
-      "sku": "",
-      "category": "Adhesives",
-      "categories": [
-        "Adhesives"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/CYANO-501-scaled.jpg",
-      "permalink": "https://weldrite.in/product/w501-instant-glue-cyanoacrylate-adhesive/",
-      "shortDescription": "Description:\n W501 Instant Glue Cyanoacrylate Adhesive,",
-      "benefits": [
-        "W501 Instant Glue Cyanoacrylate Adhesive,"
-      ],
-      "packaging": [
-        {
-          "size": "20 gm",
-          "innerCarton": "32",
-          "masterCarton": "256"
-        },
-        {
-          "size": "50 gm",
-          "innerCarton": "12",
-          "masterCarton": "96"
-        }
-      ],
-      "description": "g+\n Size \n Inner Carton \n Master Carton \n 20 gm \n 32 \n 256 \n 50 gm \n 12 \n 96"
-    },
-    {
-      "id": 2934,
-      "name": "801 GP Instant Glue Cyanoacrylate Adhesive",
-      "slug": "801-gp-instant-glue-cyanoacrylate-adhesive",
-      "sku": "",
-      "category": "Adhesives",
-      "categories": [
-        "Adhesives"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/CYANO-801-scaled.jpg",
-      "permalink": "https://weldrite.in/product/801-gp-instant-glue-cyanoacrylate-adhesive/",
-      "shortDescription": "Description:\n 801 GP Instant Glue Cyanoacrylate Adhesive,",
-      "benefits": [
-        "801 GP Instant Glue Cyanoacrylate Adhesive,"
-      ],
-      "packaging": [
-        {
-          "size": "20 gm",
-          "innerCarton": "32",
-          "masterCarton": "256"
-        },
-        {
-          "size": "50 gm",
-          "innerCarton": "12",
-          "masterCarton": "96"
-        }
-      ],
-      "description": "g+\n Size \n Inner Carton \n Master Carton \n 20 gm \n 32 \n 256 \n 50 gm \n 12 \n 96"
-    },
-    {
-      "id": 2932,
-      "name": "Superfast2min Multipurpose Adhesives",
-      "slug": "superfast2min-multipurpose-adhesives",
-      "sku": "",
-      "category": "Adhesives",
-      "categories": [
-        "Adhesives"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/superfast-40-gm.png",
-      "permalink": "https://weldrite.in/product/superfast2min-multipurpose-adhesives/",
-      "shortDescription": "Description:\n Superfast2min Multipurpose Adhesives,",
-      "benefits": [
-        "Superfast2min Multipurpose Adhesives,"
-      ],
-      "packaging": [
-        {
-          "size": "20 gm",
-          "innerCarton": "32",
-          "masterCarton": "256"
-        },
-        {
-          "size": "50 gm",
-          "innerCarton": "12",
-          "masterCarton": "96"
-        }
-      ],
-      "description": "g+\n Size \n Inner Carton \n Master Carton \n 20 gm \n 32 \n 256 \n 50 gm \n 12 \n 96"
-    },
-    {
-      "id": 2930,
-      "name": "Teflon Tape 12m x 12mm",
-      "slug": "teflon-tape-12m-x-12mm",
-      "sku": "",
-      "category": "Teflon Tape",
-      "categories": [
-        "Teflon Tape"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/teflon-12m-x-12mm.jpeg",
-      "permalink": "https://weldrite.in/product/teflon-tape-12m-x-12mm/",
-      "shortDescription": "Description:\n Teflon Tape 12m x 12mm",
-      "benefits": [
-        "Teflon Tape 12m x 12mm"
-      ],
-      "packaging": [],
-      "description": "Size \n Inner Carton \n Master Carton \n 12m x 12mm \n 250 \n 1000"
-    },
-    {
-      "id": 2928,
-      "name": "Teflon Tape 10m x 19mm",
-      "slug": "teflon-tape-10m-x-19mm",
-      "sku": "",
-      "category": "Teflon Tape",
-      "categories": [
-        "Teflon Tape"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/teflon-10m-x-19mm-1.jpeg",
-      "permalink": "https://weldrite.in/product/teflon-tape-10m-x-19mm/",
-      "shortDescription": "Description:\n Teflon Tape 10m x 19mm",
-      "benefits": [
-        "Teflon Tape 10m x 19mm"
-      ],
-      "packaging": [],
-      "description": "Size \n Inner Carton \n Master Carton \n 10m x 19mm \n 250 \n 1000"
-    },
-    {
-      "id": 2926,
-      "name": "Teflon Tape 10m x 12mm",
-      "slug": "teflon-tape-10m-x-12mm",
-      "sku": "",
-      "category": "Teflon Tape",
-      "categories": [
-        "Teflon Tape"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/teflon-10m-x-12mm.jpeg",
-      "permalink": "https://weldrite.in/product/teflon-tape-10m-x-12mm/",
-      "shortDescription": "Description:\n Teflon Tape 10m x 12mm",
-      "benefits": [
-        "Teflon Tape 10m x 12mm"
-      ],
-      "packaging": [],
-      "description": "Size \n Inner Carton \n Master Carton \n 10m x 12mm \n 250 \n 1000"
-    },
-    {
-      "id": 2924,
-      "name": "Teflon Tape 5m x 12mm",
-      "slug": "teflon-tape-5m-x-12mm",
-      "sku": "",
-      "category": "Teflon Tape",
-      "categories": [
-        "Teflon Tape"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/teflon-5m-x-12mm.jpeg",
-      "permalink": "https://weldrite.in/product/teflon-tape-5m-x-12mm/",
-      "shortDescription": "Description:\n Teflon Tape 5m x 12mm",
-      "benefits": [
-        "Teflon Tape 5m x 12mm"
-      ],
-      "packaging": [],
-      "description": "Size \n Inner Carton \n Master Carton \n 5m x 12mm \n 300 \n 1200"
-    },
-    {
-      "id": 2922,
-      "name": "CPVC Ball Valve Single Union Long",
-      "slug": "cpvc-ball-valve-single-union-long",
-      "sku": "",
-      "category": "Ball Valve",
-      "categories": [
-        "Ball Valve"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/CPVC-BALL-VALVE-SINGLE-UNION-LONG-1.jpeg",
-      "permalink": "https://weldrite.in/product/cpvc-ball-valve-single-union-long/",
-      "shortDescription": "Description:\n CPVC Ball Valve Single Union Long",
-      "benefits": [
-        "CPVC Ball Valve Single Union Long"
-      ],
-      "packaging": [],
-      "description": "Size \n PKG PCS \n 3/4″ \n 100 \n 1″ \n 100 \n 11/4″ \n 100 \n 11/2″ \n 48 \n 2″ \n 24"
-    },
-    {
-      "id": 2920,
-      "name": "UPVC Long Handle Ball Valve",
-      "slug": "upvc-long-handle-ball-valve",
-      "sku": "",
-      "category": "Ball Valve",
-      "categories": [
-        "Ball Valve"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/upvc-long-handle-valve-1-1.jpg",
-      "permalink": "https://weldrite.in/product/upvc-long-handle-ball-valve/",
-      "shortDescription": "Description:\n UPVC Long Handle Ball Valve",
-      "benefits": [
-        "UPVC Long Handle Ball Valve"
-      ],
-      "packaging": [],
-      "description": "<table id=”customers” style=”width: 100%; margin-top: 30px; border-collapse: collapse; border: 1px solid #ddd;”>\n<tbody>\n<tr>\n<td style=”text-align: center; background-color: #8d3132; padding: 12px; border: 1px solid #ddd;”><b style=”color: #fff;”>Size</b></td>\n<td style=”text-align: center; background-color: #8d3132; padding: 12px; border: 1px solid #ddd; color: black;”><b style=”color: #fff;”>PKG PCS</b></td>\n</tr>\n<tr>\n<td style=”text-align: center; padding: 10px; border: 1px solid #ddd;”><b style=”color: #000;”>1/2″</b></td>\n<td style=”text-align: center; padding: 10px; border: 1px solid #ddd;”><b style=”color: #000;”>100</b></td>\n</tr>\n<tr>\n<td style=”text-align: center; padding: 10px; border: 1px solid #ddd;”><b style=”color: #000;”>3/4″</b></td>\n<td style=”text-align: center; padding: 10px; border: 1px solid #ddd;”><b style=”color: #000;”>100</b></td>\n</tr>\n<tr>\n<td style=”text-align: center; padding: 10px; border: 1px solid #ddd;”><b style=”color: #000;”>1″</b></td>\n<td style=”text-align: center; padding: 10px; border: 1px solid #ddd;”><b style=”color: #000;”>100</b></td>\n</tr>\n<tr>\n<td style=”text-align: center; padding: 10px; border: 1px solid #ddd;”><b style=”color: #000;”>11/4″</b></td>\n<td style=”text-align: center; padding: 10px; border: 1px solid #ddd;”><b style=”color: #000;”>`100</b></td>\n</tr>\n<tr>\n<td style=”text-align: center; padding: 10px; border: 1px solid #ddd;”><b style=”color: #000;”>11/2″</b></td>\n<td style=”text-align: center; padding: 10px; border: 1px solid #ddd;”><b style=”color: #000;”>48</b></td>\n</tr>\n<tr>\n<td style=”text-align: center; padding: 10px; border: 1px solid #ddd;”><b style=”color: #000;”>2″</b></td>\n<td style=”text-align: center; padding: 10px; border: 1px solid #ddd;”><b style=”color: #000;”>24</b></td>\n</tr>\n</tbody>\n</table>"
-    },
-    {
-      "id": 2916,
-      "name": "UPVC Single Union Long Handle Ball Valve",
-      "slug": "medium-abs-282",
-      "sku": "",
-      "category": "Ball Valve",
-      "categories": [
-        "Ball Valve"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/upvc-single-union-long-handle-ball-valve-.jpg",
-      "permalink": "https://weldrite.in/product/medium-abs-282/",
-      "shortDescription": "Description:\n UPVC Single Union Long Handle Ball Valve",
-      "benefits": [
-        "UPVC Single Union Long Handle Ball Valve"
-      ],
-      "packaging": [],
-      "description": "Size \n PKG PCS \n 1/2″ \n 100 \n 3/4″ \n 100 \n 1″ \n 100 \n 11/4″ \n `100 \n 11/2″ \n 48 \n 2″ \n 24"
-    },
-    {
-      "id": 2912,
-      "name": "PVC High Pressure 132",
-      "slug": "clear-pvc-122",
-      "sku": "",
-      "category": "PVC",
-      "categories": [
-        "PVC"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/Remove-background-project-4.png",
-      "permalink": "https://weldrite.in/product/clear-pvc-122/",
-      "shortDescription": "Description:\n Medium Body\n Use for irrigation, Drain, Waste, Vent Pipe\n Use for conduit pipe\n For low pressure usage",
-      "benefits": [
-        "Medium Body",
-        "Use for irrigation, Drain, Waste, Vent Pipe",
-        "Use for conduit pipe",
-        "For low pressure usage"
-      ],
-      "packaging": [
-        {
-          "size": "30 ml Tube",
-          "innerCarton": "24",
-          "masterCarton": "384"
-        },
-        {
-          "size": "50 ml Tube",
-          "innerCarton": "12",
-          "masterCarton": "240"
-        },
-        {
-          "size": "100 ml Tube",
-          "innerCarton": "12",
-          "masterCarton": "120"
-        },
-        {
-          "size": "50 ml Tin",
-          "innerCarton": "48",
-          "masterCarton": "192"
-        },
-        {
-          "size": "100 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "192"
-        },
-        {
-          "size": "200 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "96"
-        },
-        {
-          "size": "250 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "96"
-        },
-        {
-          "size": "500 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "48"
-        },
-        {
-          "size": "1000 ml Tin",
-          "innerCarton": "12",
-          "masterCarton": "24"
-        }
-      ],
-      "description": "Size \n Inner Carton \n Master Carton \n 30 ml Tube \n 24 \n 384 \n 50 ml Tube \n 12 \n 240 \n 100 ml Tube \n 12 \n 120 \n 50 ml Tin \n 48 \n 192 \n 100 ml Tin \n 24 \n 192 \n 200 ml Tin \n 24 \n 96 \n 250 ml Tin \n 24 \n 96 \n 500 ml Tin \n 24 \n 48 \n 1000 ml Tin \n 12 \n 24"
-    },
-    {
-      "id": 2902,
-      "name": "UPVC Medium Clear 432",
-      "slug": "upvc-medium-clear-432",
-      "sku": "",
-      "category": "UPVC",
-      "categories": [
-        "UPVC"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/Untitled-design-3.png",
-      "permalink": "https://weldrite.in/product/upvc-medium-clear-432/",
-      "shortDescription": "Description:\n Solvent Cement,\nFor SCH 80 Pipe Upto 4″ & SCH 40 Pipe Upto 6″ ,\nMeets ASTM D-2564,\nMedium Bodied Clear, Fast Setting,\nUPVC Plastic Pipe Solvent",
-      "benefits": [
-        "Solvent Cement,",
-        "For SCH 80 Pipe Upto 4″ & SCH 40 Pipe Upto 6″ ,",
-        "Meets ASTM D-2564,",
-        "Medium Bodied Clear, Fast Setting,",
-        "UPVC Plastic Pipe Solvent"
-      ],
-      "packaging": [
-        {
-          "size": "59 ml",
-          "innerCarton": "24",
-          "masterCarton": "192"
-        },
-        {
-          "size": "118 ml",
-          "innerCarton": "24",
-          "masterCarton": "144"
-        },
-        {
-          "size": "237 ml",
-          "innerCarton": "24",
-          "masterCarton": "96"
-        },
-        {
-          "size": "473 ml",
-          "innerCarton": "24",
-          "masterCarton": "48"
-        },
-        {
-          "size": "946 ml",
-          "innerCarton": "12",
-          "masterCarton": "24"
-        }
-      ],
-      "description": "Size \n Inner Carton \n Master Carton \n 59 ml \n 24 \n 192 \n 118 ml \n 24 \n 144 \n 237 ml \n 24 \n 96 \n 473 ml \n 24 \n 48 \n 946 ml \n 12 \n 24"
-    },
-    {
-      "id": 2910,
-      "name": "UPVC Clear 302",
-      "slug": "upvc-302-clear",
-      "sku": "",
-      "category": "UPVC",
-      "categories": [
-        "UPVC"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/upvc-302.png",
-      "permalink": "https://weldrite.in/product/upvc-302-clear/",
-      "shortDescription": "Description:\n UPVC Plastic Pipe Solvent,\nFast Setting , One Step,\nUpto 4″ Pipe , 2 Year Shelf Life,\nMeets ASTM D-2564,",
-      "benefits": [
-        "UPVC Plastic Pipe Solvent,",
-        "Fast Setting , One Step,",
-        "Upto 4″ Pipe , 2 Year Shelf Life,",
-        "Meets ASTM D-2564,"
-      ],
-      "packaging": [
-        {
-          "size": "10 ml Tube",
-          "innerCarton": "36",
-          "masterCarton": "288"
-        },
-        {
-          "size": "25 ml Tube",
-          "innerCarton": "24",
-          "masterCarton": "192"
-        },
-        {
-          "size": "50 ml Tube",
-          "innerCarton": "12",
-          "masterCarton": "240"
-        },
-        {
-          "size": "50 ml Tin",
-          "innerCarton": "48",
-          "masterCarton": "192"
-        },
-        {
-          "size": "59 ml Tin",
-          "innerCarton": "48",
-          "masterCarton": "192"
-        },
-        {
-          "size": "100 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "144"
-        },
-        {
-          "size": "118 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "144"
-        },
-        {
-          "size": "200 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "96"
-        },
-        {
-          "size": "237 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "96"
-        },
-        {
-          "size": "473 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "48"
-        },
-        {
-          "size": "946 ml Tin",
-          "innerCarton": "12",
-          "masterCarton": "24"
-        }
-      ],
-      "description": "Size \n Inner Carton \n Master Carton \n 10 ml Tube \n 36 \n 288 \n 25 ml Tube \n 24 \n 192 \n 50 ml Tube \n 12 \n 240 \n 50 ml Tin \n 48 \n 192 \n 59 ml Tin \n 48 \n 192 \n 100 ml Tin \n 24 \n 144 \n 118 ml Tin \n 24 \n 144 \n 200 ml Tin \n 24 \n 96 \n 237 ml Tin \n 24 \n 96 \n 473 ml Tin \n 24 \n 48 \n 946 ml Tin \n 12 \n 24"
-    },
-    {
-      "id": 2900,
-      "name": "UPVC Medium Blue 424",
-      "slug": "upvc-medium-blue-424",
-      "sku": "",
-      "category": "UPVC",
-      "categories": [
-        "UPVC"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/upvc-424.png",
-      "permalink": "https://weldrite.in/product/upvc-medium-blue-424/",
-      "shortDescription": "Description:\n Solvent Cement,\nFor SCH 80 Pipe Upto 4″ & SCH 40 Pipe Upto 6″ ,\nMeets ASTM D-2564,\nMedium Bodied Blue, Fast Setting,\nUPVC Plastic Pipe Solvent",
-      "benefits": [
-        "Solvent Cement,",
-        "For SCH 80 Pipe Upto 4″ & SCH 40 Pipe Upto 6″ ,",
-        "Meets ASTM D-2564,",
-        "Medium Bodied Blue, Fast Setting,",
-        "UPVC Plastic Pipe Solvent"
-      ],
-      "packaging": [
-        {
-          "size": "50 ml Tin",
-          "innerCarton": "48",
-          "masterCarton": "192"
-        },
-        {
-          "size": "59 ml Tin",
-          "innerCarton": "48",
-          "masterCarton": "192"
-        },
-        {
-          "size": "100 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "144"
-        },
-        {
-          "size": "118 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "144"
-        },
-        {
-          "size": "200 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "96"
-        },
-        {
-          "size": "237 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "96"
-        },
-        {
-          "size": "473 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "48"
-        },
-        {
-          "size": "946 ml Tin",
-          "innerCarton": "12",
-          "masterCarton": "24"
-        }
-      ],
-      "description": "Size \n Inner Carton \n Master Carton \n 50 ml Tin \n 48 \n 192 \n 59 ml Tin \n 48 \n 192 \n 100 ml Tin \n 24 \n 144 \n 118 ml Tin \n 24 \n 144 \n 200 ml Tin \n 24 \n 96 \n 237 ml Tin \n 24 \n 96 \n 473 ml Tin \n 24 \n 48 \n 946 ml Tin \n 12 \n 24"
-    },
-    {
-      "id": 2895,
-      "name": "UPVC HD Blue 534",
-      "slug": "upvc-hd-blue-534",
-      "sku": "",
-      "category": "UPVC",
-      "categories": [
-        "UPVC"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/UPVC-534-2.png",
-      "permalink": "https://weldrite.in/product/upvc-hd-blue-534/",
-      "shortDescription": "Description:\n Solvent Cement,\nFor Pipe Upto 6″ (150mm) Interference Fit,\nMeets ASTM D-2564,\nHeavy Duty , Fast Set",
-      "benefits": [
-        "Solvent Cement,",
-        "For Pipe Upto 6″ (150mm) Interference Fit,",
-        "Meets ASTM D-2564,",
-        "Heavy Duty , Fast Set"
-      ],
-      "packaging": [
-        {
-          "size": "10 ml Tube",
-          "innerCarton": "36",
-          "masterCarton": "288"
-        },
-        {
-          "size": "25 ml Tube",
-          "innerCarton": "24",
-          "masterCarton": "192"
-        },
-        {
-          "size": "50 ml Tube",
-          "innerCarton": "12",
-          "masterCarton": "240"
-        },
-        {
-          "size": "50 ml Tin",
-          "innerCarton": "48",
-          "masterCarton": "192"
-        },
-        {
-          "size": "59 ml Tin",
-          "innerCarton": "48",
-          "masterCarton": "192"
-        },
-        {
-          "size": "100 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "144"
-        },
-        {
-          "size": "118 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "144"
-        },
-        {
-          "size": "200 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "96"
-        },
-        {
-          "size": "237 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "96"
-        },
-        {
-          "size": "473 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "48"
-        },
-        {
-          "size": "946 ml Tin",
-          "innerCarton": "12",
-          "masterCarton": "24"
-        }
-      ],
-      "description": "Size \n Inner Carton \n Master Carton \n 10 ml Tube \n 36 \n 288 \n 25 ml Tube \n 24 \n 192 \n 50 ml Tube \n 12 \n 240 \n 50 ml Tin \n 48 \n 192 \n 59 ml Tin \n 48 \n 192 \n 100 ml Tin \n 24 \n 144 \n 118 ml Tin \n 24 \n 144 \n 200 ml Tin \n 24 \n 96 \n 237 ml Tin \n 24 \n 96 \n 473 ml Tin \n 24 \n 48 \n 946 ml Tin \n 12 \n 24"
-    },
-    {
-      "id": 2893,
-      "name": "UPVC Extra HD Clear 902",
-      "slug": "upvc-extra-hd-clear-902",
-      "sku": "",
-      "category": "UPVC",
-      "categories": [
-        "UPVC"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/upvc-902.png",
-      "permalink": "https://weldrite.in/product/upvc-extra-hd-clear-902/",
-      "shortDescription": "Description:\n Solvent Cement Upto 12″ ,\nFor Pipe Upto 12″ (300mm) Interference Fit,\nMeets ASTM D-2564,\nExtra Heavy Duty Clear , Medium Setting",
-      "benefits": [
-        "Solvent Cement Upto 12″ ,",
-        "For Pipe Upto 12″ (300mm) Interference Fit,",
-        "Meets ASTM D-2564,",
-        "Extra Heavy Duty Clear , Medium Setting"
-      ],
-      "packaging": [
-        {
-          "size": "118 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "144"
-        },
-        {
-          "size": "237 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "96"
-        },
-        {
-          "size": "473 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "48"
-        },
-        {
-          "size": "946 ml Tin",
-          "innerCarton": "12",
-          "masterCarton": "24"
-        }
-      ],
-      "description": "Size \n Inner Carton \n Master Carton \n 118 ml Tin \n 24 \n 144 \n 237 ml Tin \n 24 \n 96 \n 473 ml Tin \n 24 \n 48 \n 946 ml Tin \n 12 \n 24"
-    },
-    {
-      "id": 2891,
-      "name": "UPVC Heavy Duty Clear 542",
-      "slug": "upvc-hd-clear-542",
-      "sku": "",
-      "category": "UPVC",
-      "categories": [
-        "UPVC"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/upvc-542.png",
-      "permalink": "https://weldrite.in/product/upvc-hd-clear-542/",
-      "shortDescription": "Description:\n Solvent Cement,\nFor Pipe Upto 6″ (150mm) Interference Fit,\nMeets ASTM D-2564,\nHeavy Duty Clear , Fast Setting",
-      "benefits": [
-        "Solvent Cement,",
-        "For Pipe Upto 6″ (150mm) Interference Fit,",
-        "Meets ASTM D-2564,",
-        "Heavy Duty Clear , Fast Setting"
-      ],
-      "packaging": [
-        {
-          "size": "237 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "96"
-        },
-        {
-          "size": "473 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "48"
-        },
-        {
-          "size": "946 ml Tin",
-          "innerCarton": "12",
-          "masterCarton": "24"
-        }
-      ],
-      "description": "118 ml Tin 24144\n Size \n Inner Carton \n Master Carton \n 237 ml Tin \n 24 \n 96 \n 473 ml Tin \n 24 \n 48 \n 946 ml Tin \n 12 \n 24"
-    },
-    {
-      "id": 2889,
-      "name": "UPVC Heavy Duty Grey 929",
-      "slug": "upvc-heavy-duty-grey",
-      "sku": "",
-      "category": "UPVC",
-      "categories": [
-        "UPVC"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/upvc-929.png",
-      "permalink": "https://weldrite.in/product/upvc-heavy-duty-grey/",
-      "shortDescription": "Description:\n Industrial 929 Solvent Cement,\nFor pipe upto 12″ (300mm) Interference Fit,\nMeets ASTM D-2846 & F-493 Upto 82 ° C",
-      "benefits": [
-        "Industrial 929 Solvent Cement,",
-        "For pipe upto 12″ (300mm) Interference Fit,",
-        "Meets ASTM D-2846 & F-493 Upto 82 ° C"
-      ],
-      "packaging": [
-        {
-          "size": "237 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "96"
-        },
-        {
-          "size": "473 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "48"
-        },
-        {
-          "size": "946 ml Tin",
-          "innerCarton": "12",
-          "masterCarton": "24"
-        }
-      ],
-      "description": "118 ml Tin 24144\n Size \n Inner Carton \n Master Carton \n 237 ml Tin \n 24 \n 96 \n 473 ml Tin \n 24 \n 48 \n 946 ml Tin \n 12 \n 24"
-    },
-    {
-      "id": 2884,
-      "name": "CPVC Medium Yellow 317",
-      "slug": "cpvc-317-yellow",
-      "sku": "",
-      "category": "CPVC",
-      "categories": [
-        "CPVC"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/cpvc-317.png",
-      "permalink": "https://weldrite.in/product/cpvc-317-yellow/",
-      "shortDescription": "Description:\n CPVC Plastic Pipe Solvent ,\nFast Setting, One Step\nUpto 4″ Pipe, 2 Year Shelf Life,\nMeets ASTM D-2846 & F-493,\nNet Qty : 118 ML",
-      "benefits": [
-        "CPVC Plastic Pipe Solvent ,",
-        "Fast Setting, One Step",
-        "Upto 4″ Pipe, 2 Year Shelf Life,",
-        "Meets ASTM D-2846 & F-493,",
-        "Net Qty : 118 ML"
-      ],
-      "packaging": [
-        {
-          "size": "10 ml Tube",
-          "innerCarton": "36",
-          "masterCarton": "288"
-        },
-        {
-          "size": "25 ml Tube",
-          "innerCarton": "24",
-          "masterCarton": "192"
-        },
-        {
-          "size": "50 ml Tube",
-          "innerCarton": "12",
-          "masterCarton": "240"
-        },
-        {
-          "size": "50 ml Tin",
-          "innerCarton": "48",
-          "masterCarton": "192"
-        },
-        {
-          "size": "59 ml Tin",
-          "innerCarton": "48",
-          "masterCarton": "192"
-        },
-        {
-          "size": "100 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "144"
-        },
-        {
-          "size": "118 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "144"
-        },
-        {
-          "size": "200 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "96"
-        },
-        {
-          "size": "237 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "96"
-        },
-        {
-          "size": "473 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "48"
-        },
-        {
-          "size": "946 ml Tin",
-          "innerCarton": "12",
-          "masterCarton": "24"
-        }
-      ],
-      "description": "Size \n Inner Carton \n Master Carton \n 10 ml Tube \n 36 \n 288 \n 25 ml Tube \n 24 \n 192 \n 50 ml Tube \n 12 \n 240 \n 50 ml Tin \n 48 \n 192 \n 59 ml Tin \n 48 \n 192 \n 100 ml Tin \n 24 \n 144 \n 118 ml Tin \n 24 \n 144 \n 200 ml Tin \n 24 \n 96 \n 237 ml Tin \n 24 \n 96 \n 473 ml Tin \n 24 \n 48 \n 946 ml Tin \n 12 \n 24"
-    },
-    {
-      "id": 2848,
-      "name": "CPVC Heavy Duty Yellow 956",
-      "slug": "cpvc-hd-yellow-956",
-      "sku": "",
-      "category": "CPVC",
-      "categories": [
-        "CPVC"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/cpvc-956.png",
-      "permalink": "https://weldrite.in/product/cpvc-hd-yellow-956/",
-      "shortDescription": "Description:\n Solvent Cement Upto 12″ ,\nFor pipe upto 12″ (300mm) Interference Fit,\nFor Portable Water Up to 180 ° F (82 ° C)\nMeets ASTM D-2846 & F-493,\nNet Qty : 118 ML",
-      "benefits": [
-        "Solvent Cement Upto 12″ ,",
-        "For pipe upto 12″ (300mm) Interference Fit,",
-        "For Portable Water Up to 180 ° F (82 ° C)",
-        "Meets ASTM D-2846 & F-493,",
-        "Net Qty : 118 ML"
-      ],
-      "packaging": [
-        {
-          "size": "118 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "144"
-        },
-        {
-          "size": "237 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "96"
-        },
-        {
-          "size": "473 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "48"
-        },
-        {
-          "size": "946 ml Tin",
-          "innerCarton": "12",
-          "masterCarton": "24"
-        }
-      ],
-      "description": "Size \n Inner Carton \n Master Carton \n 118 ml Tin \n 24 \n 144 \n 237 ml Tin \n 24 \n 96 \n 473 ml Tin \n 24 \n 48 \n 946 ml Tin \n 12 \n 24"
-    },
-    {
-      "id": 2847,
-      "name": "CPVC Medium Yellow 456",
-      "slug": "cpvc-medium-yellow-456",
-      "sku": "",
-      "category": "CPVC",
-      "categories": [
-        "CPVC"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/Untitled-design-4.png",
-      "permalink": "https://weldrite.in/product/cpvc-medium-yellow-456/",
-      "shortDescription": "Description:\n Solvent Cement\nFor pipe upto 4″ (100mm) Interference Fit,\nFor Portable Water Up to 180 ° F (82 ° C)\nMeets ASTM D-2846 & F-493,",
-      "benefits": [
-        "Solvent Cement",
-        "For pipe upto 4″ (100mm) Interference Fit,",
-        "For Portable Water Up to 180 ° F (82 ° C)",
-        "Meets ASTM D-2846 & F-493,"
-      ],
-      "packaging": [
-        {
-          "size": "59 ml",
-          "innerCarton": "24",
-          "masterCarton": "192"
-        },
-        {
-          "size": "118 ml",
-          "innerCarton": "24",
-          "masterCarton": "144"
-        },
-        {
-          "size": "237 ml",
-          "innerCarton": "24",
-          "masterCarton": "96"
-        },
-        {
-          "size": "473 ml",
-          "innerCarton": "24",
-          "masterCarton": "48"
-        },
-        {
-          "size": "946 ml",
-          "innerCarton": "12",
-          "masterCarton": "24"
-        }
-      ],
-      "description": "Size \n Inner Carton \n Master Carton \n 59 ml  \n 24 \n 192 \n 118 ml \n 24 \n 144 \n 237 ml \n 24 \n 96 \n 473 ml \n 24 \n 48 \n 946 ml  \n 12 \n 24"
-    },
-    {
-      "id": 2845,
-      "name": "CPVC Heavy Duty Orange 788",
-      "slug": "cpvc-hd-orange-788",
-      "sku": "",
-      "category": "CPVC",
-      "categories": [
-        "CPVC"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/cpvc_788-removebg-preview.png",
-      "permalink": "https://weldrite.in/product/cpvc-hd-orange-788/",
-      "shortDescription": "Description:\n Solvent Cement Upto 6″ ,\nFor pipe upto 6″ (150mm) Interference Fit,\nFor Portable Water Up to 180 ° F (82 ° C)\nMeets ASTM D-2846 & F-493,\nHeavy Duty & Fast Set,",
-      "benefits": [
-        "Solvent Cement Upto 6″ ,",
-        "For pipe upto 6″ (150mm) Interference Fit,",
-        "For Portable Water Up to 180 ° F (82 ° C)",
-        "Meets ASTM D-2846 & F-493,",
-        "Heavy Duty & Fast Set,"
-      ],
-      "packaging": [
-        {
-          "size": "118 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "144"
-        },
-        {
-          "size": "237 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "96"
-        },
-        {
-          "size": "473 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "48"
-        },
-        {
-          "size": "946 ml Tin",
-          "innerCarton": "12",
-          "masterCarton": "24"
-        }
-      ],
-      "description": "Size \n Inner Carton \n Master Carton \n 118 ml Tin \n 24 \n 144 \n 237 ml Tin \n 24 \n 96 \n 473 ml Tin \n 24 \n 48 \n 946 ml Tin \n 12 \n 24"
-    },
-    {
-      "id": 2833,
-      "name": "CPVC Heavy Duty Grey 989",
-      "slug": "cpvc-heavy-duty-grey",
-      "sku": "",
-      "category": "CPVC",
-      "categories": [
-        "CPVC"
-      ],
-      "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/cpvc-989.png",
-      "permalink": "https://weldrite.in/product/cpvc-heavy-duty-grey/",
-      "shortDescription": "Description:\n Industrial 989 Solvent Cement,\nFor pipe upto 12′ (300mm) Interference Fit,\nMeets ASTM D-2846 & F-493 Upto 82 ° C",
-      "benefits": [
-        "Industrial 989 Solvent Cement,",
-        "For pipe upto 12′ (300mm) Interference Fit,",
-        "Meets ASTM D-2846 & F-493 Upto 82 ° C"
-      ],
-      "packaging": [
-        {
-          "size": "118 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "144"
-        },
-        {
-          "size": "237 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "96"
-        },
-        {
-          "size": "473 ml Tin",
-          "innerCarton": "24",
-          "masterCarton": "48"
-        },
-        {
-          "size": "946 ml Tin",
-          "innerCarton": "12",
-          "masterCarton": "24"
-        }
-      ],
-      "description": "Size \n Inner Carton \n Master Carton \n 118 ml Tin \n 24 \n 144 \n 237 ml Tin \n 24 \n 96 \n 473 ml Tin \n 24 \n 48 \n 946 ml Tin \n 12 \n 24"
-    }
-  ],
-  "downloads": [
-    {
-      "title": "Weldrite Brochure 2026",
-      "type": "Brochure",
-      "url": "https://weldrite.in/wp-content/uploads/2026/03/Brochure-2026-New_compressed_compressed-compressed.pdf",
-      "desc": "Complete product brochure with full catalog (2026 edition)"
-    },
-    {
-      "title": "Weldrite Brochure 2025",
-      "type": "Brochure",
-      "url": "https://weldrite.in/wp-content/uploads/2025/04/WELDRITE-BROCHURE-2025.pdf",
-      "desc": "Full product catalog (2025 edition)"
-    },
-    {
-      "title": "Weldrite Product Catalogue",
-      "type": "Catalogue",
-      "url": "https://weldrite.in/wp-content/uploads/2025/04/WELDRITE-BROCHURE-2.pdf",
-      "desc": "Technical product catalogue & specifications"
-    }
+  "certifications": [
+   {
+    "name": "ISO Certified",
+    "detail": "ISO-certified company since 2007"
+   },
+   {
+    "name": "ASTM Standards",
+    "detail": "Meets all relevant ASTM standards (ASTM D 2564 / D 2846)"
+   },
+   {
+    "name": "ANSI Standards",
+    "detail": "Compliant with ANSI quality standards"
+   },
+   {
+    "name": "NSF Listed",
+    "detail": "Formulated to NSF potable-water safety guidelines"
+   },
+   {
+    "name": "Made in Collaboration",
+    "detail": "Manufactured in collaboration with Bluestream, USA"
+   }
   ]
+ },
+ "contact": {
+  "phone": "+917498911130",
+  "phoneDisplay": "+91 74989 11130",
+  "whatsapp": "917498911130",
+  "email": "info@sindhucon.com",
+  "hours": "24/7",
+  "address": "Tulsi Darpan, 302, Plot No-158, Sector 28, Vashi, Navi Mumbai, Maharashtra 400703",
+  "city": "Navi Mumbai",
+  "state": "Maharashtra",
+  "pincode": "400703",
+  "lat": 19.076,
+  "lng": 73.0,
+  "website": "https://weldrite.in"
+ },
+ "categories": [
+  {
+   "id": 46,
+   "name": "ABS",
+   "slug": "abs",
+   "productCount": 1,
+   "icon": "solvent",
+   "imageUrl": ""
+  },
+  {
+   "id": 49,
+   "name": "Adhesives",
+   "slug": "adhesives",
+   "productCount": 6,
+   "icon": "adhesive",
+   "imageUrl": ""
+  },
+  {
+   "id": 47,
+   "name": "Ball Valve",
+   "slug": "ball-valve",
+   "productCount": 3,
+   "icon": "valve",
+   "imageUrl": ""
+  },
+  {
+   "id": 51,
+   "name": "Cleaner",
+   "slug": "cleaner",
+   "productCount": 3,
+   "icon": "cleaner",
+   "imageUrl": ""
+  },
+  {
+   "id": 43,
+   "name": "CPVC",
+   "slug": "cpvc",
+   "productCount": 5,
+   "icon": "solvent",
+   "imageUrl": ""
+  },
+  {
+   "id": 52,
+   "name": "Primer",
+   "slug": "primer",
+   "productCount": 1,
+   "icon": "primer",
+   "imageUrl": ""
+  },
+  {
+   "id": 45,
+   "name": "PVC",
+   "slug": "pvc",
+   "productCount": 1,
+   "icon": "solvent",
+   "imageUrl": ""
+  },
+  {
+   "id": 50,
+   "name": "Rubber Lubricant",
+   "slug": "rubber-lubricant",
+   "productCount": 1,
+   "icon": "lubricant",
+   "imageUrl": ""
+  },
+  {
+   "id": 48,
+   "name": "Teflon Tape",
+   "slug": "teflon-tape",
+   "productCount": 6,
+   "icon": "tape",
+   "imageUrl": ""
+  },
+  {
+   "id": 44,
+   "name": "UPVC",
+   "slug": "upvc",
+   "productCount": 7,
+   "icon": "solvent",
+   "imageUrl": ""
+  },
+  {
+   "id": 53,
+   "name": "Waterproofing",
+   "slug": "waterproofing",
+   "productCount": 3,
+   "icon": "waterproof",
+   "imageUrl": ""
+  }
+ ],
+ "products": [
+  {
+   "id": 3754,
+   "name": "TankSeal",
+   "slug": "tankseal",
+   "sku": "",
+   "category": "Adhesives",
+   "categories": [
+    "Adhesives"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2026/10/WhatsApp-Image-2026-10-04-at-12.36.14-PM-1.jpeg",
+   "permalink": "https://weldrite.in/product/tankseal/",
+   "shortDescription": "Use for repairing any leak in plastic & metal water tank & coolers.\nEnsure the tank is empty.\nDry the crack.\nClean the surface with a cloth to remove dirt and dust.\nRoughen the surface with sandpaper (150 no).\nMix Part A and Part B.\nApply the mixture generously over the crack; apply both inside & outside.\nApply within 10 minutes.\nWait 2–3 hours before use.",
+   "benefits": [
+    "Use for repairing any leak in plastic & metal water tank & coolers."
+   ],
+   "usage": [
+    "Ensure the tank is empty.",
+    "Dry the crack.",
+    "Clean the surface with a cloth to remove dirt and dust.",
+    "Roughen the surface with sandpaper (150 no).",
+    "Mix Part A and Part B.",
+    "Apply the mixture generously over the crack; apply both inside & outside.",
+    "Apply within 10 minutes.",
+    "Wait 2–3 hours before use."
+   ],
+   "packaging": {
+    "headers": [],
+    "rows": []
+   },
+   "description": ""
+  },
+  {
+   "id": 3743,
+   "name": "Adhesive Cleaner",
+   "slug": "adhesive-cleaner",
+   "sku": "",
+   "category": "Adhesives",
+   "categories": [
+    "Adhesives"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2026/10/WhatsApp-Image-2026-10-04-at-12.36.14-PM.jpeg",
+   "permalink": "https://weldrite.in/product/adhesive-cleaner/",
+   "shortDescription": "Weldrite Adhesive Cleaner is a specially formulated product developed to remove adhesive marks for CPVC, UPVC, PVC, ABS Solvent Cements.\nUse for Epoxy Adhesive and More.\nIt is safe and easy to use.\nIt acts quickly and efficiently.\nIt is transparent.",
+   "benefits": [
+    "Weldrite Adhesive Cleaner is a specially formulated product developed to remove adhesive marks for CPVC, UPVC, PVC, ABS Solvent Cements.",
+    "Use for Epoxy Adhesive and More.",
+    "It is safe and easy to use.",
+    "It acts quickly and efficiently.",
+    "It is transparent."
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [],
+    "rows": []
+   },
+   "description": ""
+  },
+  {
+   "id": 3653,
+   "name": "Tile Cleaner",
+   "slug": "tile-cleaner",
+   "sku": "",
+   "category": "Cleaner",
+   "categories": [
+    "Cleaner"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2026/03/Tile-Cleaner-2026.png",
+   "permalink": "https://weldrite.in/product/tile-cleaner/",
+   "shortDescription": "Tile Cleaner Heavy Duty advanced formulation for rapid actions remove stubborn stains",
+   "benefits": [
+    "Tile Cleaner Heavy Duty advanced formulation for rapid actions remove stubborn stains"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "500 ml",
+      "1",
+      "72"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 3550,
+   "name": "SBR LATEX PRO",
+   "slug": "sbr-latex-pro",
+   "sku": "",
+   "category": "Waterproofing",
+   "categories": [
+    "Waterproofing"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-23-at-13.02.05.jpeg",
+   "permalink": "https://weldrite.in/product/sbr-latex-pro/",
+   "shortDescription": "Highly potent and versatile SBR LATEX based liquid for high performance applications in waterproofing and repairs.\nUsed for repair of spelled concrete floors, columns, beams, chhajas, slab & waterproofing of toilets & bathrooms, small terraces, etc.",
+   "benefits": [
+    "Highly potent and versatile SBR LATEX based liquid for high performance applications in waterproofing and repairs.",
+    "Used for repair of spelled concrete floors, columns, beams, chhajas, slab & waterproofing of toilets & bathrooms, small terraces, etc."
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [],
+    "rows": []
+   },
+   "description": ""
+  },
+  {
+   "id": 3478,
+   "name": "WLS – WATERPROOFING LIQUID SOLUTION",
+   "slug": "wls-waterproofing-liquid-solution",
+   "sku": "",
+   "category": "Waterproofing",
+   "categories": [
+    "Waterproofing"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-23-at-1.01.21-PM.jpeg",
+   "permalink": "https://weldrite.in/product/wls-waterproofing-liquid-solution/",
+   "shortDescription": "It’s a styrene butadiene latex supplied as a ready to use bonding agent in liquid consistency.\nBonds strongly to old & new concrete and to plaster\nUsed for repair of spelled concrete floors, columns, beams, chhajas, slab & waterproofing of toilets & bathrooms, small terraces, etc",
+   "benefits": [
+    "It’s a styrene butadiene latex supplied as a ready to use bonding agent in liquid consistency.",
+    "Bonds strongly to old & new concrete and to plaster",
+    "Used for repair of spelled concrete floors, columns, beams, chhajas, slab & waterproofing of toilets & bathrooms, small terraces, etc"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [],
+    "rows": []
+   },
+   "description": ""
+  },
+  {
+   "id": 3476,
+   "name": "SBR LATEX AR",
+   "slug": "sbr-latex-ar",
+   "sku": "",
+   "category": "Waterproofing",
+   "categories": [
+    "Waterproofing"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-23-at-1.00.59-PM.jpeg",
+   "permalink": "https://weldrite.in/product/sbr-latex-ar/",
+   "shortDescription": "It’s a styrene butadiene latex supplied as a ready to use bonding agent in liquid consistency.\nBonds strongly to old & new concrete and to plaster\nUsed for repair of spelled concrete floors, columns, beams, chhajas, slab & waterproofing of toilets & bathrooms, small terraces, etc",
+   "benefits": [
+    "It’s a styrene butadiene latex supplied as a ready to use bonding agent in liquid consistency.",
+    "Bonds strongly to old & new concrete and to plaster",
+    "Used for repair of spelled concrete floors, columns, beams, chhajas, slab & waterproofing of toilets & bathrooms, small terraces, etc"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [],
+    "rows": []
+   },
+   "description": ""
+  },
+  {
+   "id": 3474,
+   "name": "Purple Primer",
+   "slug": "purple-primer",
+   "sku": "",
+   "category": "Primer",
+   "categories": [
+    "Primer"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-23-at-12.48.27-PM.jpeg",
+   "permalink": "https://weldrite.in/product/purple-primer/",
+   "shortDescription": "High Strength Industrial Usages",
+   "benefits": [
+    "High Strength Industrial Usages"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "118 ml Tin",
+      "24",
+      "144"
+     ],
+     [
+      "237 ml Tin",
+      "24",
+      "96"
+     ],
+     [
+      "473 ml Tin",
+      "24",
+      "48"
+     ],
+     [
+      "946 ml Tin",
+      "12",
+      "24"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 3472,
+   "name": "ABS Solvent Cement",
+   "slug": "abs-solvent-cement",
+   "sku": "",
+   "category": "ABS",
+   "categories": [
+    "ABS"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-23-at-12.47.08-PM.jpeg",
+   "permalink": "https://weldrite.in/product/abs-solvent-cement/",
+   "shortDescription": "Medium Body, Fast Set\nUpto 6” (150mm) dia pipe",
+   "benefits": [
+    "Medium Body, Fast Set",
+    "Upto 6” (150mm) dia pipe"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "118 ml Tin",
+      "24",
+      "144"
+     ],
+     [
+      "237 ml Tin",
+      "24",
+      "96"
+     ],
+     [
+      "473 ml Tin",
+      "24",
+      "48"
+     ],
+     [
+      "946 ml Tin",
+      "12",
+      "24"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 3418,
+   "name": "Teflon Tape 12m x 12.5mm",
+   "slug": "teflon-tape-12m-x-12-5mm",
+   "sku": "",
+   "category": "Teflon Tape",
+   "categories": [
+    "Teflon Tape"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-21-at-10.48.04-AM-1.jpeg",
+   "permalink": "https://weldrite.in/product/teflon-tape-12m-x-12-5mm/",
+   "shortDescription": "Teflon Tape 12m x 12.5mm x 6g (net teflon)\n100% PTFE",
+   "benefits": [
+    "Teflon Tape 12m x 12.5mm x 6g (net teflon)",
+    "100% PTFE"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "12m x 12.5mm",
+      "250",
+      "1000"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 3416,
+   "name": "Teflon Tape 8m x 12mm",
+   "slug": "teflon-tape-8m-x-12mm",
+   "sku": "",
+   "category": "Teflon Tape",
+   "categories": [
+    "Teflon Tape"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-21-at-10.48.04-AM.jpeg",
+   "permalink": "https://weldrite.in/product/teflon-tape-8m-x-12mm/",
+   "shortDescription": "Teflon Tape 8m x 12mm x 4g (net teflon)\n100% PTFE",
+   "benefits": [
+    "Teflon Tape 8m x 12mm x 4g (net teflon)",
+    "100% PTFE"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "8m x 12mm",
+      "250",
+      "1000"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 3333,
+   "name": "Tap Cleaner",
+   "slug": "tap-cleaner",
+   "sku": "",
+   "category": "Cleaner",
+   "categories": [
+    "Cleaner"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/TAP-METAL-CLEANER-2.jpg-scaled.jpeg",
+   "permalink": "https://weldrite.in/product/tap-cleaner/",
+   "shortDescription": "Tap & Metal Cleaner Advanced Formula\nFor: Taps, Brass & Copper, Handles, Cooking Hobs\nChrome Cleaner, CP Fittings, Appliances",
+   "benefits": [
+    "Tap & Metal Cleaner Advanced Formula",
+    "For: Taps, Brass & Copper, Handles, Cooking Hobs",
+    "Chrome Cleaner, CP Fittings, Appliances"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "250 ml",
+      "24",
+      "72"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 3331,
+   "name": "Drain Cleaner",
+   "slug": "drain-cleaner",
+   "sku": "",
+   "category": "Cleaner",
+   "categories": [
+    "Cleaner"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-07-at-3.03.37-PM.jpeg",
+   "permalink": "https://weldrite.in/product/drain-cleaner/",
+   "shortDescription": "Super Strong Drain Cleaner\nCleans and Opens Blocked Drain Pipes\nNet Qty: 50g",
+   "benefits": [
+    "Super Strong Drain Cleaner",
+    "Cleans and Opens Blocked Drain Pipes",
+    "Net Qty: 50g"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "50 gm Pouch",
+      "50",
+      "500"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2940,
+   "name": "Epoxy Adhesive",
+   "slug": "epoxy-adhesive",
+   "sku": "",
+   "category": "Adhesives",
+   "categories": [
+    "Adhesives"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/Epoxy-advance-pro.png",
+   "permalink": "https://weldrite.in/product/epoxy-adhesive/",
+   "shortDescription": "Clear transparent epoxy adhesive\nGood for bonding glass to other materials\nHigher bond strength\nBonds anything to anything, like metals, ceramics, marble, granite, leather, wood, and rubber.",
+   "benefits": [
+    "Clear transparent epoxy adhesive",
+    "Good for bonding glass to other materials",
+    "Higher bond strength",
+    "Bonds anything to anything, like metals, ceramics, marble, granite, leather, wood, and rubber."
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "36 gm (20R+16H) Tube",
+      "12",
+      "192"
+     ],
+     [
+      "90 gm (50R+40H) Tube",
+      "8",
+      "96"
+     ],
+     [
+      "36 gm (20R+16H)",
+      "",
+      "384"
+     ],
+     [
+      "90 gm (50R+40H)",
+      "8",
+      "96"
+     ],
+     [
+      "450 gm (250R+200H)",
+      "6",
+      "24"
+     ],
+     [
+      "900 gm (500R+400H)",
+      "4",
+      "16"
+     ],
+     [
+      "1.8 kg (1kg R+800gm H)",
+      "3",
+      "12"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2938,
+   "name": "Rubber Lubricant",
+   "slug": "rubber-lubricant",
+   "sku": "",
+   "category": "Rubber Lubricant",
+   "categories": [
+    "Rubber Lubricant"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/RUBER-LUBRICANT.jpg",
+   "permalink": "https://weldrite.in/product/rubber-lubricant/",
+   "shortDescription": "For Simple, Quick, Watertight Jointing of Weldrite PVC Soil, Waste and Rain Water (SWR) Drairage Fitting",
+   "benefits": [
+    "For Simple, Quick, Watertight Jointing of Weldrite PVC Soil, Waste and Rain Water (SWR) Drairage Fitting"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "50 gm",
+      "60",
+      "240"
+     ],
+     [
+      "100 gm",
+      "48",
+      "192"
+     ],
+     [
+      "250 gm",
+      "24",
+      "96"
+     ],
+     [
+      "500 gm",
+      "12",
+      "48"
+     ],
+     [
+      "1000 gm",
+      "6",
+      "24"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2936,
+   "name": "W501 Instant Glue Cyanoacrylate Adhesive",
+   "slug": "w501-instant-glue-cyanoacrylate-adhesive",
+   "sku": "",
+   "category": "Adhesives",
+   "categories": [
+    "Adhesives"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/CYANO-501-scaled.jpg",
+   "permalink": "https://weldrite.in/product/w501-instant-glue-cyanoacrylate-adhesive/",
+   "shortDescription": "W501 Instant Glue Cyanoacrylate Adhesive",
+   "benefits": [
+    "W501 Instant Glue Cyanoacrylate Adhesive"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "20 gm",
+      "32",
+      "256"
+     ],
+     [
+      "50 gm",
+      "12",
+      "96"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2934,
+   "name": "801 GP Instant Glue Cyanoacrylate Adhesive",
+   "slug": "801-gp-instant-glue-cyanoacrylate-adhesive",
+   "sku": "",
+   "category": "Adhesives",
+   "categories": [
+    "Adhesives"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/CYANO-801-scaled.jpg",
+   "permalink": "https://weldrite.in/product/801-gp-instant-glue-cyanoacrylate-adhesive/",
+   "shortDescription": "801 GP Instant Glue Cyanoacrylate Adhesive",
+   "benefits": [
+    "801 GP Instant Glue Cyanoacrylate Adhesive"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "20 gm",
+      "32",
+      "256"
+     ],
+     [
+      "50 gm",
+      "12",
+      "96"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2932,
+   "name": "Superfast2min Multipurpose Adhesives",
+   "slug": "superfast2min-multipurpose-adhesives",
+   "sku": "",
+   "category": "Adhesives",
+   "categories": [
+    "Adhesives"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/superfast-40-gm.png",
+   "permalink": "https://weldrite.in/product/superfast2min-multipurpose-adhesives/",
+   "shortDescription": "Superfast2min Multipurpose Adhesives",
+   "benefits": [
+    "Superfast2min Multipurpose Adhesives"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "20 gm",
+      "32",
+      "256"
+     ],
+     [
+      "50 gm",
+      "12",
+      "96"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2930,
+   "name": "Teflon Tape 12m x 12mm",
+   "slug": "teflon-tape-12m-x-12mm",
+   "sku": "",
+   "category": "Teflon Tape",
+   "categories": [
+    "Teflon Tape"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/teflon-12m-x-12mm.jpeg",
+   "permalink": "https://weldrite.in/product/teflon-tape-12m-x-12mm/",
+   "shortDescription": "Teflon Tape 12m x 12mm",
+   "benefits": [
+    "Teflon Tape 12m x 12mm"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "12m x 12mm",
+      "250",
+      "1000"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2928,
+   "name": "Teflon Tape 10m x 19mm",
+   "slug": "teflon-tape-10m-x-19mm",
+   "sku": "",
+   "category": "Teflon Tape",
+   "categories": [
+    "Teflon Tape"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/teflon-10m-x-19mm-1.jpeg",
+   "permalink": "https://weldrite.in/product/teflon-tape-10m-x-19mm/",
+   "shortDescription": "Teflon Tape 10m x 19mm",
+   "benefits": [
+    "Teflon Tape 10m x 19mm"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "10m x 19mm",
+      "250",
+      "1000"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2926,
+   "name": "Teflon Tape 10m x 12mm",
+   "slug": "teflon-tape-10m-x-12mm",
+   "sku": "",
+   "category": "Teflon Tape",
+   "categories": [
+    "Teflon Tape"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/teflon-10m-x-12mm.jpeg",
+   "permalink": "https://weldrite.in/product/teflon-tape-10m-x-12mm/",
+   "shortDescription": "Teflon Tape 10m x 12mm",
+   "benefits": [
+    "Teflon Tape 10m x 12mm"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "10m x 12mm",
+      "250",
+      "1000"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2924,
+   "name": "Teflon Tape 5m x 12mm",
+   "slug": "teflon-tape-5m-x-12mm",
+   "sku": "",
+   "category": "Teflon Tape",
+   "categories": [
+    "Teflon Tape"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/teflon-5m-x-12mm.jpeg",
+   "permalink": "https://weldrite.in/product/teflon-tape-5m-x-12mm/",
+   "shortDescription": "Teflon Tape 5m x 12mm",
+   "benefits": [
+    "Teflon Tape 5m x 12mm"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "5m x 12mm",
+      "300",
+      "1200"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2922,
+   "name": "CPVC Ball Valve Single Union Long",
+   "slug": "cpvc-ball-valve-single-union-long",
+   "sku": "",
+   "category": "Ball Valve",
+   "categories": [
+    "Ball Valve"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/CPVC-BALL-VALVE-SINGLE-UNION-LONG-1.jpeg",
+   "permalink": "https://weldrite.in/product/cpvc-ball-valve-single-union-long/",
+   "shortDescription": "CPVC Ball Valve Single Union Long",
+   "benefits": [
+    "CPVC Ball Valve Single Union Long"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "PKG PCS"
+    ],
+    "rows": [
+     [
+      "3/4″",
+      "100"
+     ],
+     [
+      "1″",
+      "100"
+     ],
+     [
+      "11/4″",
+      "100"
+     ],
+     [
+      "11/2″",
+      "48"
+     ],
+     [
+      "2″",
+      "24"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2920,
+   "name": "UPVC Long Handle Ball Valve",
+   "slug": "upvc-long-handle-ball-valve",
+   "sku": "",
+   "category": "Ball Valve",
+   "categories": [
+    "Ball Valve"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/upvc-long-handle-valve-1-1.jpg",
+   "permalink": "https://weldrite.in/product/upvc-long-handle-ball-valve/",
+   "shortDescription": "UPVC Long Handle Ball Valve",
+   "benefits": [
+    "UPVC Long Handle Ball Valve"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "PKG PCS"
+    ],
+    "rows": [
+     [
+      "1/2″",
+      "100"
+     ],
+     [
+      "3/4″",
+      "100"
+     ],
+     [
+      "1″",
+      "100"
+     ],
+     [
+      "11/4″",
+      "100"
+     ],
+     [
+      "11/2″",
+      "48"
+     ],
+     [
+      "2″",
+      "24"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2916,
+   "name": "UPVC Single Union Long Handle Ball Valve",
+   "slug": "medium-abs-282",
+   "sku": "",
+   "category": "Ball Valve",
+   "categories": [
+    "Ball Valve"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/upvc-single-union-long-handle-ball-valve-.jpg",
+   "permalink": "https://weldrite.in/product/medium-abs-282/",
+   "shortDescription": "UPVC Single Union Long Handle Ball Valve",
+   "benefits": [
+    "UPVC Single Union Long Handle Ball Valve"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "PKG PCS"
+    ],
+    "rows": [
+     [
+      "1/2″",
+      "100"
+     ],
+     [
+      "3/4″",
+      "100"
+     ],
+     [
+      "1″",
+      "100"
+     ],
+     [
+      "11/4″",
+      "100"
+     ],
+     [
+      "11/2″",
+      "48"
+     ],
+     [
+      "2″",
+      "24"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2912,
+   "name": "PVC High Pressure 132",
+   "slug": "clear-pvc-122",
+   "sku": "",
+   "category": "PVC",
+   "categories": [
+    "PVC"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/WhatsApp-Image-2026-10-04-at-12.36.15-PM.jpeg",
+   "permalink": "https://weldrite.in/product/clear-pvc-122/",
+   "shortDescription": "Medium Body\nUse for irrigation, Drain, Waste, Vent Pipe\nUse for conduit pipe\nFor low pressure usage",
+   "benefits": [
+    "Medium Body",
+    "Use for irrigation, Drain, Waste, Vent Pipe",
+    "Use for conduit pipe",
+    "For low pressure usage"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "30 ml Tube",
+      "24",
+      "384"
+     ],
+     [
+      "50 ml Tube",
+      "12",
+      "240"
+     ],
+     [
+      "100 ml Tube",
+      "12",
+      "120"
+     ],
+     [
+      "50 ml Tin",
+      "48",
+      "192"
+     ],
+     [
+      "100 ml Tin",
+      "24",
+      "192"
+     ],
+     [
+      "200 ml Tin",
+      "24",
+      "96"
+     ],
+     [
+      "250 ml Tin",
+      "24",
+      "96"
+     ],
+     [
+      "500 ml Tin",
+      "24",
+      "48"
+     ],
+     [
+      "1000 ml Tin",
+      "12",
+      "24"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2902,
+   "name": "UPVC Medium Clear 432",
+   "slug": "upvc-medium-clear-432",
+   "sku": "",
+   "category": "UPVC",
+   "categories": [
+    "UPVC"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/Untitled-design-3.png",
+   "permalink": "https://weldrite.in/product/upvc-medium-clear-432/",
+   "shortDescription": "Solvent Cement\nFor SCH 80 Pipe Upto 4″ & SCH 40 Pipe Upto 6″\nMeets ASTM D-2564\nMedium Bodied Clear, Fast Setting\nUPVC Plastic Pipe Solvent",
+   "benefits": [
+    "Solvent Cement",
+    "For SCH 80 Pipe Upto 4″ & SCH 40 Pipe Upto 6″",
+    "Meets ASTM D-2564",
+    "Medium Bodied Clear, Fast Setting",
+    "UPVC Plastic Pipe Solvent"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "59 ml",
+      "24",
+      "192"
+     ],
+     [
+      "118 ml",
+      "24",
+      "144"
+     ],
+     [
+      "237 ml",
+      "24",
+      "96"
+     ],
+     [
+      "473 ml",
+      "24",
+      "48"
+     ],
+     [
+      "946 ml",
+      "12",
+      "24"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2910,
+   "name": "UPVC Clear 302",
+   "slug": "upvc-302-clear",
+   "sku": "",
+   "category": "UPVC",
+   "categories": [
+    "UPVC"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/upvc-302.png",
+   "permalink": "https://weldrite.in/product/upvc-302-clear/",
+   "shortDescription": "UPVC Plastic Pipe Solvent\nFast Setting, One Step\nUpto 4″ Pipe, 2 Year Shelf Life\nMeets ASTM D-2564",
+   "benefits": [
+    "UPVC Plastic Pipe Solvent",
+    "Fast Setting, One Step",
+    "Upto 4″ Pipe, 2 Year Shelf Life",
+    "Meets ASTM D-2564"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "10 ml Tube",
+      "36",
+      "288"
+     ],
+     [
+      "25 ml Tube",
+      "24",
+      "192"
+     ],
+     [
+      "50 ml Tube",
+      "12",
+      "240"
+     ],
+     [
+      "50 ml Tin",
+      "48",
+      "192"
+     ],
+     [
+      "59 ml Tin",
+      "48",
+      "192"
+     ],
+     [
+      "100 ml Tin",
+      "24",
+      "144"
+     ],
+     [
+      "118 ml Tin",
+      "24",
+      "144"
+     ],
+     [
+      "200 ml Tin",
+      "24",
+      "96"
+     ],
+     [
+      "237 ml Tin",
+      "24",
+      "96"
+     ],
+     [
+      "473 ml Tin",
+      "24",
+      "48"
+     ],
+     [
+      "946 ml Tin",
+      "12",
+      "24"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2900,
+   "name": "UPVC Medium Blue 424",
+   "slug": "upvc-medium-blue-424",
+   "sku": "",
+   "category": "UPVC",
+   "categories": [
+    "UPVC"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/upvc-424.png",
+   "permalink": "https://weldrite.in/product/upvc-medium-blue-424/",
+   "shortDescription": "Solvent Cement\nFor SCH 80 Pipe Upto 4″ & SCH 40 Pipe Upto 6″\nMeets ASTM D-2564\nMedium Bodied Blue, Fast Setting\nUPVC Plastic Pipe Solvent",
+   "benefits": [
+    "Solvent Cement",
+    "For SCH 80 Pipe Upto 4″ & SCH 40 Pipe Upto 6″",
+    "Meets ASTM D-2564",
+    "Medium Bodied Blue, Fast Setting",
+    "UPVC Plastic Pipe Solvent"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "50 ml Tin",
+      "48",
+      "192"
+     ],
+     [
+      "59 ml Tin",
+      "48",
+      "192"
+     ],
+     [
+      "100 ml Tin",
+      "24",
+      "144"
+     ],
+     [
+      "118 ml Tin",
+      "24",
+      "144"
+     ],
+     [
+      "200 ml Tin",
+      "24",
+      "96"
+     ],
+     [
+      "237 ml Tin",
+      "24",
+      "96"
+     ],
+     [
+      "473 ml Tin",
+      "24",
+      "48"
+     ],
+     [
+      "946 ml Tin",
+      "12",
+      "24"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2895,
+   "name": "UPVC HD Blue 534",
+   "slug": "upvc-hd-blue-534",
+   "sku": "",
+   "category": "UPVC",
+   "categories": [
+    "UPVC"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/UPVC-534-2.png",
+   "permalink": "https://weldrite.in/product/upvc-hd-blue-534/",
+   "shortDescription": "Solvent Cement\nFor Pipe Upto 6″ (150mm) Interference Fit\nMeets ASTM D-2564\nHeavy Duty, Fast Set",
+   "benefits": [
+    "Solvent Cement",
+    "For Pipe Upto 6″ (150mm) Interference Fit",
+    "Meets ASTM D-2564",
+    "Heavy Duty, Fast Set"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "10 ml Tube",
+      "36",
+      "288"
+     ],
+     [
+      "25 ml Tube",
+      "24",
+      "192"
+     ],
+     [
+      "50 ml Tube",
+      "12",
+      "240"
+     ],
+     [
+      "50 ml Tin",
+      "48",
+      "192"
+     ],
+     [
+      "59 ml Tin",
+      "48",
+      "192"
+     ],
+     [
+      "100 ml Tin",
+      "24",
+      "144"
+     ],
+     [
+      "118 ml Tin",
+      "24",
+      "144"
+     ],
+     [
+      "200 ml Tin",
+      "24",
+      "96"
+     ],
+     [
+      "237 ml Tin",
+      "24",
+      "96"
+     ],
+     [
+      "473 ml Tin",
+      "24",
+      "48"
+     ],
+     [
+      "946 ml Tin",
+      "12",
+      "24"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2893,
+   "name": "UPVC Extra HD Clear 902",
+   "slug": "upvc-extra-hd-clear-902",
+   "sku": "",
+   "category": "UPVC",
+   "categories": [
+    "UPVC"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/upvc-902.png",
+   "permalink": "https://weldrite.in/product/upvc-extra-hd-clear-902/",
+   "shortDescription": "Solvent Cement Upto 12″\nFor Pipe Upto 12″ (300mm) Interference Fit\nMeets ASTM D-2564\nExtra Heavy Duty Clear, Medium Setting",
+   "benefits": [
+    "Solvent Cement Upto 12″",
+    "For Pipe Upto 12″ (300mm) Interference Fit",
+    "Meets ASTM D-2564",
+    "Extra Heavy Duty Clear, Medium Setting"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "118 ml Tin",
+      "24",
+      "144"
+     ],
+     [
+      "237 ml Tin",
+      "24",
+      "96"
+     ],
+     [
+      "473 ml Tin",
+      "24",
+      "48"
+     ],
+     [
+      "946 ml Tin",
+      "12",
+      "24"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2891,
+   "name": "UPVC Heavy Duty Clear 542",
+   "slug": "upvc-hd-clear-542",
+   "sku": "",
+   "category": "UPVC",
+   "categories": [
+    "UPVC"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/upvc-542.png",
+   "permalink": "https://weldrite.in/product/upvc-hd-clear-542/",
+   "shortDescription": "Solvent Cement\nFor Pipe Upto 6″ (150mm) Interference Fit\nMeets ASTM D-2564\nHeavy Duty Clear, Fast Setting",
+   "benefits": [
+    "Solvent Cement",
+    "For Pipe Upto 6″ (150mm) Interference Fit",
+    "Meets ASTM D-2564",
+    "Heavy Duty Clear, Fast Setting"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "118 ml Tin",
+      "24",
+      "144"
+     ],
+     [
+      "237 ml Tin",
+      "24",
+      "96"
+     ],
+     [
+      "473 ml Tin",
+      "24",
+      "48"
+     ],
+     [
+      "946 ml Tin",
+      "12",
+      "24"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2889,
+   "name": "UPVC Heavy Duty Grey 929",
+   "slug": "upvc-heavy-duty-grey",
+   "sku": "",
+   "category": "UPVC",
+   "categories": [
+    "UPVC"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/upvc-929.png",
+   "permalink": "https://weldrite.in/product/upvc-heavy-duty-grey/",
+   "shortDescription": "Industrial 929 Solvent Cement\nFor pipe upto 12″ (300mm) Interference Fit\nMeets ASTM D-2846 & F-493 Upto 82°C",
+   "benefits": [
+    "Industrial 929 Solvent Cement",
+    "For pipe upto 12″ (300mm) Interference Fit",
+    "Meets ASTM D-2846 & F-493 Upto 82°C"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "118 ml Tin",
+      "24",
+      "144"
+     ],
+     [
+      "237 ml Tin",
+      "24",
+      "96"
+     ],
+     [
+      "473 ml Tin",
+      "24",
+      "48"
+     ],
+     [
+      "946 ml Tin",
+      "12",
+      "24"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2884,
+   "name": "CPVC Medium Yellow 317",
+   "slug": "cpvc-317-yellow",
+   "sku": "",
+   "category": "CPVC",
+   "categories": [
+    "CPVC"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/cpvc-317.png",
+   "permalink": "https://weldrite.in/product/cpvc-317-yellow/",
+   "shortDescription": "CPVC Plastic Pipe Solvent\nFast Setting, One Step\nUpto 4″ Pipe, 2 Year Shelf Life\nMeets ASTM D-2846 & F-493\nNet Qty : 118 ML",
+   "benefits": [
+    "CPVC Plastic Pipe Solvent",
+    "Fast Setting, One Step",
+    "Upto 4″ Pipe, 2 Year Shelf Life",
+    "Meets ASTM D-2846 & F-493",
+    "Net Qty : 118 ML"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "10 ml Tube",
+      "36",
+      "288"
+     ],
+     [
+      "25 ml Tube",
+      "24",
+      "192"
+     ],
+     [
+      "50 ml Tube",
+      "12",
+      "240"
+     ],
+     [
+      "50 ml Tin",
+      "48",
+      "192"
+     ],
+     [
+      "59 ml Tin",
+      "48",
+      "192"
+     ],
+     [
+      "100 ml Tin",
+      "24",
+      "144"
+     ],
+     [
+      "118 ml Tin",
+      "24",
+      "144"
+     ],
+     [
+      "200 ml Tin",
+      "24",
+      "96"
+     ],
+     [
+      "237 ml Tin",
+      "24",
+      "96"
+     ],
+     [
+      "473 ml Tin",
+      "24",
+      "48"
+     ],
+     [
+      "946 ml Tin",
+      "12",
+      "24"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2848,
+   "name": "CPVC Heavy Duty Yellow 956",
+   "slug": "cpvc-hd-yellow-956",
+   "sku": "",
+   "category": "CPVC",
+   "categories": [
+    "CPVC"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/cpvc-956.png",
+   "permalink": "https://weldrite.in/product/cpvc-hd-yellow-956/",
+   "shortDescription": "Solvent Cement Upto 12″\nFor pipe upto 12″ (300mm) Interference Fit\nFor Portable Water Up to 180°F (82°C)\nMeets ASTM D-2846 & F-493\nNet Qty : 118 ML",
+   "benefits": [
+    "Solvent Cement Upto 12″",
+    "For pipe upto 12″ (300mm) Interference Fit",
+    "For Portable Water Up to 180°F (82°C)",
+    "Meets ASTM D-2846 & F-493",
+    "Net Qty : 118 ML"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "118 ml Tin",
+      "24",
+      "144"
+     ],
+     [
+      "237 ml Tin",
+      "24",
+      "96"
+     ],
+     [
+      "473 ml Tin",
+      "24",
+      "48"
+     ],
+     [
+      "946 ml Tin",
+      "12",
+      "24"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2847,
+   "name": "CPVC Medium Yellow 456",
+   "slug": "cpvc-medium-yellow-456",
+   "sku": "",
+   "category": "CPVC",
+   "categories": [
+    "CPVC"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/Untitled-design-4.png",
+   "permalink": "https://weldrite.in/product/cpvc-medium-yellow-456/",
+   "shortDescription": "Solvent Cement\nFor pipe upto 4″ (100mm) Interference Fit\nFor Portable Water Up to 180°F (82°C)\nMeets ASTM D-2846 & F-493",
+   "benefits": [
+    "Solvent Cement",
+    "For pipe upto 4″ (100mm) Interference Fit",
+    "For Portable Water Up to 180°F (82°C)",
+    "Meets ASTM D-2846 & F-493"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "59 ml",
+      "24",
+      "192"
+     ],
+     [
+      "118 ml",
+      "24",
+      "144"
+     ],
+     [
+      "237 ml",
+      "24",
+      "96"
+     ],
+     [
+      "473 ml",
+      "24",
+      "48"
+     ],
+     [
+      "946 ml",
+      "12",
+      "24"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2845,
+   "name": "CPVC Heavy Duty Orange 788",
+   "slug": "cpvc-hd-orange-788",
+   "sku": "",
+   "category": "CPVC",
+   "categories": [
+    "CPVC"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/cpvc_788-removebg-preview.png",
+   "permalink": "https://weldrite.in/product/cpvc-hd-orange-788/",
+   "shortDescription": "Solvent Cement Upto 6″\nFor pipe upto 6″ (150mm) Interference Fit\nFor Portable Water Up to 180°F (82°C)\nMeets ASTM D-2846 & F-493\nHeavy Duty & Fast Set",
+   "benefits": [
+    "Solvent Cement Upto 6″",
+    "For pipe upto 6″ (150mm) Interference Fit",
+    "For Portable Water Up to 180°F (82°C)",
+    "Meets ASTM D-2846 & F-493",
+    "Heavy Duty & Fast Set"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "118 ml Tin",
+      "24",
+      "144"
+     ],
+     [
+      "237 ml Tin",
+      "24",
+      "96"
+     ],
+     [
+      "473 ml Tin",
+      "24",
+      "48"
+     ],
+     [
+      "946 ml Tin",
+      "12",
+      "24"
+     ]
+    ]
+   },
+   "description": ""
+  },
+  {
+   "id": 2833,
+   "name": "CPVC Heavy Duty Grey 989",
+   "slug": "cpvc-heavy-duty-grey",
+   "sku": "",
+   "category": "CPVC",
+   "categories": [
+    "CPVC"
+   ],
+   "imageUrl": "https://weldrite.in/wp-content/uploads/2025/04/cpvc-989.png",
+   "permalink": "https://weldrite.in/product/cpvc-heavy-duty-grey/",
+   "shortDescription": "Industrial 989 Solvent Cement\nFor pipe upto 12′ (300mm) Interference Fit\nMeets ASTM D-2846 & F-493 Upto 82°C",
+   "benefits": [
+    "Industrial 989 Solvent Cement",
+    "For pipe upto 12′ (300mm) Interference Fit",
+    "Meets ASTM D-2846 & F-493 Upto 82°C"
+   ],
+   "usage": [],
+   "packaging": {
+    "headers": [
+     "Size",
+     "Inner Carton",
+     "Master Carton"
+    ],
+    "rows": [
+     [
+      "118 ml Tin",
+      "24",
+      "144"
+     ],
+     [
+      "237 ml Tin",
+      "24",
+      "96"
+     ],
+     [
+      "473 ml Tin",
+      "24",
+      "48"
+     ],
+     [
+      "946 ml Tin",
+      "12",
+      "24"
+     ]
+    ]
+   },
+   "description": ""
+  }
+ ],
+ "downloads": [
+  {
+   "title": "Weldrite Brochure 2026",
+   "type": "Brochure",
+   "url": "https://weldrite.in/wp-content/uploads/2026/03/Brochure-2026-New_compressed_compressed-compressed.pdf",
+   "desc": "Complete product brochure with full catalog (2026 edition)"
+  },
+  {
+   "title": "Weldrite Brochure 2025",
+   "type": "Brochure",
+   "url": "https://weldrite.in/wp-content/uploads/2025/04/WELDRITE-BROCHURE-2025.pdf",
+   "desc": "Full product catalog (2025 edition)"
+  },
+  {
+   "title": "Weldrite Product Catalogue",
+   "type": "Catalogue",
+   "url": "https://weldrite.in/wp-content/uploads/2025/04/WELDRITE-BROCHURE-2.pdf",
+   "desc": "Technical product catalogue & specifications"
+  }
+ ]
 }

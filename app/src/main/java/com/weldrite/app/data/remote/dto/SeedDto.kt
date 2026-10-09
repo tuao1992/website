@@ -8,7 +8,7 @@ import com.weldrite.app.data.model.CompanyInfo
 import com.weldrite.app.data.model.CompanyStat
 import com.weldrite.app.data.model.ContactInfo
 import com.weldrite.app.data.model.DownloadItem
-import com.weldrite.app.data.model.Packaging
+import com.weldrite.app.data.model.PackagingTable
 import com.weldrite.app.data.model.Product
 import com.weldrite.app.data.model.ProductCategory
 
@@ -62,7 +62,7 @@ data class CategoryDto(
     val imageUrl: String,
 )
 
-data class PackagingDto(val size: String, val innerCarton: String, val masterCarton: String)
+data class PackagingTableDto(val headers: List<String>?, val rows: List<List<String>>?)
 
 data class ProductDto(
     val id: Int,
@@ -75,7 +75,8 @@ data class ProductDto(
     val permalink: String,
     val shortDescription: String,
     val benefits: List<String>,
-    val packaging: List<PackagingDto>,
+    val usage: List<String>?,
+    val packaging: PackagingTableDto?,
     val description: String,
 )
 
@@ -114,7 +115,8 @@ fun CategoryDto.toDomain() = ProductCategory(id, name, slug, productCount, icon,
 fun ProductDto.toDomain() = Product(
     id = id, name = name, slug = slug, sku = sku, category = category, categories = categories,
     imageUrl = imageUrl, permalink = permalink, shortDescription = shortDescription,
-    benefits = benefits, packaging = packaging.map { Packaging(it.size, it.innerCarton, it.masterCarton) },
+    benefits = benefits, usage = usage.orEmpty(),
+    packaging = packaging?.let { PackagingTable(it.headers.orEmpty(), it.rows.orEmpty()) } ?: PackagingTable.EMPTY,
     description = description,
 )
 

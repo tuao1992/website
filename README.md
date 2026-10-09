@@ -6,7 +6,7 @@ Products & Services Pvt. Ltd.*), optimised for mobile.
 
 Built with **Kotlin · Jetpack Compose · Material 3 · MVVM · Retrofit · Room · Coil**.
 
-All content (35 products, 11 categories, company info, certifications, contact details,
+All content (37 products, 11 categories, company info, certifications, contact details,
 brochures) is **real**, extracted from weldrite.in's WordPress + WooCommerce REST APIs and
 bundled for an offline-first experience, with live refresh when online.
 
@@ -132,3 +132,19 @@ Real content is fetched from:
 - `https://weldrite.in/wp-json/wp/v2/pages/*` — About / Contact copy
 
 See **[SITEMAP.md](SITEMAP.md)** for the full website analysis (Phase 1).
+
+### Refreshing the bundled content
+The app refreshes products live when online, but the bundled seed is what a fresh install
+shows offline. To re-sync it with the website before a release:
+
+```bash
+python3 -I tools/refresh_content.py --check   # report what changed on the site (exit 1 if stale)
+python3 -I tools/refresh_content.py           # rewrite app_data.json + test fixtures
+./gradlew :app:testDebugUnitTest              # SeedConsistencyTest must pass
+```
+
+Products and categories are parsed by `core/HtmlUtil.kt`; the script is a line-for-line
+port of it, and `SeedConsistencyTest` fails if the bundled seed differs from what the app's
+own live refresh would produce. Company info, contact details and the brochure list are
+curated in `app_data.json` and kept as-is (the script checks every brochure link). Hero
+banners are bundled drawables — compare them with the homepage slider when refreshing.

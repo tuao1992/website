@@ -67,8 +67,9 @@ import com.weldrite.app.ui.components.categoryIcon
 import com.weldrite.app.ui.theme.BrandMaroon
 import kotlinx.coroutines.delay
 
+/** Mirrors the weldrite.in homepage slider (slides 11-2, 22-1, 44-2, 55-4). */
 private val heroImages = listOf(
-    R.drawable.hero_11_2, R.drawable.hero_22_1, R.drawable.hero_33_4,
+    R.drawable.hero_11_2, R.drawable.hero_22_1,
     R.drawable.hero_44_2, R.drawable.hero_55_4,
 )
 

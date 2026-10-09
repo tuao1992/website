@@ -8,7 +8,9 @@ import androidx.room.TypeConverters
 
 @Database(
     entities = [ProductEntity::class, CategoryEntity::class, DownloadEntity::class],
-    version = 1,
+    // v2: generic packaging table + usage steps. The DB is a cache of public content,
+    // so the destructive fallback simply re-seeds it from assets on upgrade.
+    version = 2,
     exportSchema = false,
 )
 @TypeConverters(Converters::class)

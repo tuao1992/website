@@ -3,7 +3,7 @@ package com.weldrite.app.data.local
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.weldrite.app.data.model.DownloadItem
-import com.weldrite.app.data.model.Packaging
+import com.weldrite.app.data.model.PackagingTable
 import com.weldrite.app.data.model.Product
 import com.weldrite.app.data.model.ProductCategory
 
@@ -19,7 +19,8 @@ data class ProductEntity(
     val permalink: String,
     val shortDescription: String,
     val benefits: List<String>,
-    val packaging: List<Packaging>,
+    val usage: List<String>,
+    val packaging: PackagingTable,
     val description: String,
 )
 
@@ -45,12 +46,12 @@ data class DownloadEntity(
 
 fun ProductEntity.toDomain() = Product(
     id, name, slug, sku, category, categories, imageUrl, permalink,
-    shortDescription, benefits, packaging, description
+    shortDescription, benefits, usage, packaging, description
 )
 
 fun Product.toEntity() = ProductEntity(
     id, name, slug, sku, category, categories, imageUrl, permalink,
-    shortDescription, benefits, packaging, description
+    shortDescription, benefits, usage, packaging, description
 )
 
 fun CategoryEntity.toDomain() = ProductCategory(id, name, slug, productCount, icon, imageUrl)
