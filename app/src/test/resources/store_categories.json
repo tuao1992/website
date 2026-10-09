@@ -1,0 +1,79 @@
+[
+ {
+  "id": 46,
+  "name": "ABS",
+  "slug": "abs",
+  "count": 1,
+  "image": null
+ },
+ {
+  "id": 49,
+  "name": "Adhesives",
+  "slug": "adhesives",
+  "count": 6,
+  "image": null
+ },
+ {
+  "id": 47,
+  "name": "Ball Valve",
+  "slug": "ball-valve",
+  "count": 3,
+  "image": null
+ },
+ {
+  "id": 51,
+  "name": "Cleaner",
+  "slug": "cleaner",
+  "count": 3,
+  "image": null
+ },
+ {
+  "id": 43,
+  "name": "CPVC",
+  "slug": "cpvc",
+  "count": 5,
+  "image": null
+ },
+ {
+  "id": 52,
+  "name": "Primer",
+  "slug": "primer",
+  "count": 1,
+  "image": null
+ },
+ {
+  "id": 45,
+  "name": "PVC",
+  "slug": "pvc",
+  "count": 1,
+  "image": null
+ },
+ {
+  "id": 50,
+  "name": "Rubber Lubricant",
+  "slug": "rubber-lubricant",
+  "count": 1,
+  "image": null
+ },
+ {
+  "id": 48,
+  "name": "Teflon Tape",
+  "slug": "teflon-tape",
+  "count": 6,
+  "image": null
+ },
+ {
+  "id": 44,
+  "name": "UPVC",
+  "slug": "upvc",
+  "count": 7,
+  "image": null
+ },
+ {
+  "id": 53,
+  "name": "Waterproofing",
+  "slug": "waterproofing",
+  "count": 3,
+  "image": null
+ }
+]
